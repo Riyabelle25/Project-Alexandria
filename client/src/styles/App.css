@@ -1,0 +1,41 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  width: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-bounce 4s ease 0s infinite;
+    /* name duration timing-function delay iteration-count direction fill-mode; */
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-bounce {
+  0%   { transform: translateY(0); }
+        50%  { transform: translateY(50px); }
+        100% { transform: translateY(0); }
+}
+
+#firebaseui-auth-container{
+  margin-bottom: 2ex;
+}

@@ -1,0 +1,59 @@
+{
+  "name": "client",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "^4.11.4",
+    "@material-ui/icons": "^4.11.2",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "antd": "^4.1.4",
+    "axios": "^0.21.1",
+    "bootstrap": "^4.4.1",
+    "concurrently": "^5.1.0",
+    "faker": "^5.5.3",
+    "firebase": "^8.6.8",
+    "peer": "^0.6.1",
+    "react": "^17.0.2",
+    "react-bootstrap": "^1.0.0",
+    "react-css-grid": "^2.0.0-0",
+    "react-dom": "^17.0.2",
+    "react-firebaseui": "^5.0.2",
+    "react-grid-layout": "^1.2.5",
+    "react-grid-system": "^7.2.0",
+    "react-router": "^5.1.2",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "4.0.3",
+    "reactstrap": "^8.4.1",
+    "socket.io": "^2.3.0",
+    "socket.io-client": "^2.3.0",
+    "standard": "^14.3.3",
+    "web-vitals": "^1.1.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "proxy": "http://localhost:8080",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

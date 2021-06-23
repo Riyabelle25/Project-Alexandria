@@ -1,15 +1,63 @@
 
 import './styles/App.css';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { Auth } from './components/auth.js'
-import { Video } from './components/roomCall'
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';import { Auth } from './views/auth.js'
+import { Video } from './views/roomCall'
+import Sidebar from './components/Sidebar';
+import Chat from './components/Chat';
+import Login from './components/Login';
+import Home from './components/Home'
+
+import { auth } from './app/firebase';
+import { login, logout, selectUser } from './slice/userSlice';
 
 function App() {
+
+  const dispatch = useDispatch();
+  const user = useSelector(selectUser);
+
+  useEffect(() => {
+    auth.onAuthStateChanged((authUser) => {
+      if (authUser) {
+        dispatch(
+          login({
+            uid: authUser.uid,
+            photo: authUser.photoURL,
+            email: authUser.email,
+            displayName: authUser.displayName,
+          })
+        );
+      } else {
+        dispatch(logout());
+      }
+    });
+  }, [dispatch]);
+
+
   return (
-    <div>
+    <div className="app">
       <Router>
         <Switch>
-          <Route path="/" exact component={Auth} />
+          <Route path="/" exact component={Auth} >
+          { 
+          user ? 
+          (<><Home /></>
+            ) : (
+              <Login />
+            )}
+          </Route>
+          <Route path="/room/:name">
+          {
+            user ? (
+              <>
+                <Sidebar />
+                <Chat />
+              </>
+            ) : (
+                <Login />
+            )}
+          </Route>
           <Route path="/:url" component={Video} />
         </Switch>
       </Router>

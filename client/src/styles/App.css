@@ -1,9 +1,16 @@
-.App {
+.app {
+  display: flex;
+}
+.App{
   text-align: center;
 }
 
+/* #room-chat-container{
+  display: flex;
+} */
+
 .App-logo {
-  height: 40vmin;
+  height: 60vmin;
   width: 40vmin;
   pointer-events: none;
 }
@@ -16,17 +23,18 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #dabd90;
   min-height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
+} 
 
-.App-link {
+ .App-link {
   color: #61dafb;
 }
 
@@ -34,8 +42,4 @@
   0%   { transform: translateY(0); }
         50%  { transform: translateY(50px); }
         100% { transform: translateY(0); }
-}
-
-#firebaseui-auth-container{
-  margin-bottom: 2ex;
 }

@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "alexandria": "file:server"
+  }
+}

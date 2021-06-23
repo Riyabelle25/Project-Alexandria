@@ -27,6 +27,7 @@ export const Home = function(props){
 
   useEffect(() => {
   getRooms();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   },[]);
 
   console.log("data from home", data);

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "concurrently -n 'server,client' -c 'red,green'  \"nodemon app.js\" \"NODE_ENV=dev PORT=8000 react-scripts start\"",
-    "test": "node tests/test.js",
+    "test": "cd .. && node tests/test.js",
     "start": "node index.js",
     "build": "cd .. && cd client && npm install && npm run build"
   },

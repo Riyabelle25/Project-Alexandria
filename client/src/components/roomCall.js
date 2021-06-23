@@ -1,3 +1,4 @@
+/* eslint-disable no-loop-func */
 import React, { Component } from 'react'
 import io from 'socket.io-client'
 import faker from "faker"

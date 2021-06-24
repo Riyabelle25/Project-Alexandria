@@ -33,7 +33,7 @@ var id=null;
             console.log("user exists:", doc.data());
         } else {
             console.log("Adding new user!");
-            db.collection("users").doc(id).set({userID: id, userName: user.displayName, rooms: [{roomName:"Pen 204",roomID:"1234"}, {roomName:"Pen 201",roomID:"1235"}]});
+            db.collection("users").doc(id).set({userID: id, userName: user.displayName, rooms: [{roomName:"Pen 204"}, {roomName:"Pen 201"}]});
             console.log("id",id);
         }
       })

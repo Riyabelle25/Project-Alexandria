@@ -38,7 +38,7 @@ export const Home = function(props){
         <header className= "App-header">
         <p>Welcome {props.userName} You are now signed-in!</p>
         <div>{ data.map((room) => (
-          <div>RoomName: { room.roomName } with code: { room.roomID }</div>
+          <div>RoomName: { room.roomName }</div>
         )) }</div> 
          
         </header>

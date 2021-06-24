@@ -522,11 +522,11 @@ export class Video extends Component {
 							</div>
 
 							<Row id="main" className="flex-container" style={{ margin: 0, padding: 0 }}>
-								<wrapper>
+							
 								<video id="my-video" ref={this.localVideoref} autoPlay muted style={{
 									borderStyle: "solid",borderColor: "#bdbdbd",margin: "5px",objectFit: "fit",
 									width: "100%",height: "100%"}}></video>
-								</wrapper>
+								
 							</Row>
 						</div>
 					</div>

@@ -6,19 +6,24 @@ var xss = require("xss")
 const http = require('http');
 const app = express();
 app.use(express.urlencoded({ extended: false }));
-app.use(cors())
+app.use(cors({	
+	credentials: true,
+	origin: ["https://alexandria-4da0a.web.app","https://project-alexandria.azurewebsites.net"],
+	methods: ["GET", "POST"]
+  }));
 app.use(express.json())
 var server = http.Server(app)
-var io = require('socket.io')(server)
+var io = require('socket.io')(server, {secure: true,
+	allowEIO3:true
+});
 const { ExpressPeerServer } = require('peer');
 
 const peerServer = ExpressPeerServer(server, {
     debug: true
 });
-app.use('/peerjs', peerServer)
-// app.set('view engine', 'ejs');
+app.use('/peerjs', peerServer);
 
-// app.use(express.static(path.resolve(__dirname, '../client/build')));
+app.use(express.static(path.resolve(__dirname, '../client/build')));
 
 app.set('port', (process.env.PORT || 8080))
 

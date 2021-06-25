@@ -21,7 +21,7 @@ import Modal from 'react-bootstrap/Modal'
 import 'bootstrap/dist/css/bootstrap.css'
 import "../styles/Video.css"
 
-const server_url = "http://localhost:8080"
+const server_url = "https://alexandria-server.azurewebsites.net/"
 
 var connections = {}
 const peerConnectionConfig = {

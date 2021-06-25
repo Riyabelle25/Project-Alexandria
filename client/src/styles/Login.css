@@ -28,14 +28,14 @@
   pointer-events: none;
   padding: 5%;
 }
-.MuiButton-root,.MuiButton-label{
+/* .MuiButton-root,.MuiButton-label{
   width: 10%;
   height: 7vh;
   background-color: rgb(207, 207, 149);
   color: rgb(34, 2, 2);
   border-radius: 17%;
   font-size: medium;
-}
+} */
 #welcome-msg{
   color: rgb(34, 2, 2);
 }

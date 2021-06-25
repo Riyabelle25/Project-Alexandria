@@ -1,6 +1,5 @@
 /* eslint-disable no-loop-func */
 import React, { Component } from 'react'
-import io from 'socket.io-client'
 import faker from "faker"
 
 import {IconButton, Badge, Input, Button} from '@material-ui/core'
@@ -20,13 +19,20 @@ import { Row } from 'reactstrap'
 import Modal from 'react-bootstrap/Modal'
 import 'bootstrap/dist/css/bootstrap.css'
 import "../styles/Video.css"
-
+const io = require("socket.io-client");
 const server_url = "https://alexandria-server.azurewebsites.net/"
 
 var connections = {}
 const peerConnectionConfig = {
 	'iceServers': [
-		{ 'urls': 'stun:stun.l.google.com:19302' },
+		// {urls:['stun:stun.schlund.de','stun:stun.l.google.com:19302', 'stun:stun1.l.google.com:19302',
+		// 'stun:stun2.l.google.com:19302','stun:stun3.l.google.com:19302',
+		// 'stun:stun4.l.google.com:19302']},
+
+		{	urls: 'turn:numb.viagenie.ca',
+			credential: 'muazkh',
+			username: 'webrtc@live.com'
+		},
 	]
 }
 var socket = null
@@ -270,8 +276,12 @@ export class Video extends Component {
 	}
 
 	connectToSocketServer = () => {
-		socket = io.connect(server_url, { secure: true })
-
+		console.log("want to connect");
+		socket = io.connect(server_url, {secure: true, cors:{
+			// withCredentials:false
+		}
+		})
+		console.log("connected");
 		socket.on('signal', this.gotMessageFromServer)
 
 		socket.on('connect', () => {
@@ -296,16 +306,18 @@ export class Video extends Component {
 					connections[socketListId] = new RTCPeerConnection(peerConnectionConfig)
 					// Wait for their ice candidate       
 					connections[socketListId].onicecandidate = function (event) {
+						console.log("335: about to be iced");
 						if (event.candidate != null) {
+							console.log("337: event not null!");
 							socket.emit('signal', socketListId, JSON.stringify({ 'ice': event.candidate }))
-						}
+						} else {console.log("339: event is null");}
 					}
 
 					// Wait for their video stream
 					connections[socketListId].onaddstream = (event) => {
 						// TODO mute button, full screen button
 						var searchVidep = document.querySelector(`[data-socket="${socketListId}"]`)
-						if (searchVidep !== null) { // if i don't do this check it make an empyt square
+						if (searchVidep !== null) { // if i don't do this check it'll make an empty square
 							searchVidep.srcObject = event.stream
 						} else {
 							elms = clients.length

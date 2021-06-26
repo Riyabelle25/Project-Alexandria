@@ -24,7 +24,9 @@ const peerServer = ExpressPeerServer(server, {
 app.use('/peerjs', peerServer);
 
 app.use(express.static(path.resolve(__dirname, '../client/build')));
-
+app.get('/', (req,res) => {
+	res.sendFile(process.cwd()+"../client/build/index.html");
+  });
 app.set('port', (process.env.PORT || 8080))
 
 sanitizeString = (str) => {

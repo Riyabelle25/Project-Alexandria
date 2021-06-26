@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "concurrently -n 'server,client' -c 'red,green'  \"nodemon app.js\" \"NODE_ENV=dev PORT=8000 react-scripts start\"",
     "test": "mocha tests/test.js",
-    "start": "npm install && cd server && npm install && node index.js",
+    "start": "npm install && npm run build && cd server && npm install && node index.js",
     "build": "cd client && npm install && npm run build"
   },
   "author": "",

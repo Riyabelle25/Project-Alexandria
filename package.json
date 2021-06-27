@@ -1,26 +1,24 @@
 {
-  "name": "alexandria-server",
+  "name": "alexandria",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server/index.js",
   "scripts": {
     "dev": "concurrently -n 'server,client' -c 'red,green'  \"nodemon app.js\" \"NODE_ENV=dev PORT=8000 react-scripts start\"",
-    "start": "node index.js",
-    "build": "cd .. && cd client && npm install && npm run build"
+    "test": "mocha tests/test.js",
+    "start": "npm install && npm run build && cd server && npm install && node index.js",
+    "build": "cd client && npm install && npm run build"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "concurrently": "^5.1.0",
-    "cors": "^2.8.5",
     "express": "^4.17.1",
-    "nodemon": "^2.0.4",
-    "peer": "^0.5.3",
-    "socket.io": "^2.3.0",
-    "xss": "^1.0.9"
+    "mocha": "^9.0.1"
   },
   "devDependencies": {
-    "axios": "^0.19.2"
+    "axios": "^0.19.2",
+    "socket.io-client": "^4.1.2"
   },
   "engines": {
     "node": "16.3.0"

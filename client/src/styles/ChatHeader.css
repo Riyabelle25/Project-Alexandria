@@ -20,11 +20,17 @@
 
 .chatHeader__right {
   display: flex;
-  align-items: center;
-  flex: 0.5;
-  justify-content: space-between;
+  align-items: flex-end;
+  flex: 0.4;
+  justify-content: center;
+  text-align: justify;
 }
-
+a, a:visited, a:active, a:link{
+  color: white;
+  }
+a:hover{
+  color:#4fb185
+  }
 .chatHeader__right > .MuiSvgIcon-root {
   padding: 5px;
   cursor: pointer;
@@ -32,20 +38,4 @@
 
 .chatHeader__right > .MuiSvgIcon-root:hover {
   color: #4fb185;
-}
-
-.chatHeader__search {
-  display: flex;
-  align-items: center;
-  color: gray;
-  background-color: #2f3135;
-  border-radius: 3px;
-  padding: 3px;
-}
-
-.chatHeader__search > input {
-  background: transparent;
-  outline-width: 0;
-  color: white;
-  border: none;
 }

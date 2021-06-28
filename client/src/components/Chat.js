@@ -47,7 +47,6 @@ function Chat() {
   return (
     <div className="chat">
       <ChatHeader channelName={channelName} />
-
       <div className="chat__messages">
         {messages.map((message, index) => (
           <Message

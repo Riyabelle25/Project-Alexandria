@@ -5,7 +5,6 @@ import Avatar from '@material-ui/core/Avatar';
 import AvatarGroup from '@material-ui/lab/AvatarGroup';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton'
 // import Grid from '@material-ui/core/Grid';
 import { Column, Row, Item } from '@mui-treasury/components/flex';
 import { Info, InfoSubtitle, InfoTitle } from '@mui-treasury/components/info';

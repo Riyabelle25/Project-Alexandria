@@ -1,16 +1,20 @@
 .message {
   display: flex;
   align-items: center;
-  padding: 20px;
-  color: white;
+  padding: 40px;
+  color: rgba(26, 21, 21, 0.76);
+  justify-content: end;
 }
 
 .message__info {
-  margin-left: 20px;
+  font-size: medium; 
 }
 
 .message__timestamp {
   color: gray;
   margin-left: 20px;
   font-size: x-small;
+}
+#user{
+  color: rgb(185, 176, 194);
 }

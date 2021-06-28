@@ -2,6 +2,8 @@
     display: flex;
     flex:1; 
     height:100vh; 
+    /* overflow: hidden; */
+
   }
   .home__container div{
     min-width: 49%;
@@ -17,8 +19,10 @@
     height:100%; 
   }
   .left__container {  
+    scroll-behavior: smooth;
     min-height: 100%;
-    padding-top: 5%;
+    padding-top: 45%;
+    
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -29,6 +33,8 @@
 
   /* width */
 .left__container::-webkit-scrollbar {
+  padding-top: 10%;
+  margin-top: 50;
   width: 5px;
   height: 75vh;
 }

@@ -2,12 +2,13 @@
 import './styles/App.css';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';import { Auth } from './views/auth.js'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+// import { Auth } from './views/auth.js'
 import { Video } from './views/roomCall'
 import Sidebar from './components/Sidebar';
 import Chat from './components/Chat';
-import Login from './components/Login';
-import Home from './components/Home'
+import Login from './views/Login';
+import Home from './views/Home';
 
 import { auth } from './app/firebase';
 import { login, logout, selectUser } from './slice/userSlice';
@@ -39,7 +40,7 @@ function App() {
     <div className="app">
       <Router>
         <Switch>
-          <Route path="/" exact component={Auth} >
+          <Route path="/" exact component={Login} >
           { 
           user ? 
           (<><Home /></>

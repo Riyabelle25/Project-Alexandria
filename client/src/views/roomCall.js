@@ -20,7 +20,9 @@ import Modal from 'react-bootstrap/Modal'
 import 'bootstrap/dist/css/bootstrap.css'
 import "../styles/Video.css"
 const io = require("socket.io-client");
-const server_url = "https://project-alexandria.azurewebsites.net:8080"
+const server_url = "http://localhost:8080"
+// https://alexandria-server.azurewebsites.net
+
 
 var connections = {}
 const peerConnectionConfig = {
@@ -548,4 +550,3 @@ export class Video extends Component {
 	}
 }
 
-// "concurrently \"node server/index.js \" \"cd client && npm run start\"",

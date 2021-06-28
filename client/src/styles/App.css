@@ -1,13 +1,15 @@
 .app {
   display: flex;
+  background-color: rgb(13, 1, 27);
+  min-height: 100vh;
 }
 .App{
   text-align: center;
+  background-color: rgb(13, 1, 27);  
 }
-
-/* #room-chat-container{
-  display: flex;
-} */
+a, a:visited, a:active, a:hover, a:link{
+color: white;
+}
 
 .App-logo {
   height: 60vmin;

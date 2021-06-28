@@ -6,7 +6,6 @@ name: Azure App Service - Project-Alexandria(Production), Build and deploy NodeJ
 on:
   push:
     branches:
-      - main
       - room-chat
 
 jobs:

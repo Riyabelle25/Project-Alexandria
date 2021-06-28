@@ -1,7 +1,9 @@
 body {
     margin: 0;
 }
-
+.launch{
+width: 100vw;
+}
 .flex-container {
     height: calc(100% - 150px);
     width: 100%;
@@ -17,7 +19,8 @@ body {
     width: 100vw;
     max-width: 100vw;
     max-height: 100vh;
-
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;

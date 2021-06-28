@@ -464,16 +464,16 @@ export class Video extends Component {
 		// 			<h1>Sorry, this works only with Google Chrome!</h1>
 		// 		</div>
 		// 	)
-		// }
+		// }copy
 		return (
 			<div>
 				<script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
 				{this.state.askForUsername === true ?
-					<div>
-						<div style={{background: "white", width: "30%", height: "auto", padding: "10px", minWidth: "400px",
+					<div className="launch">
+						<div style={{background: "rgb(13, 1, 27)", color: "white",width: "30%", height: "auto", padding: "10px", minWidth: "400px",
 								textAlign: "center", margin: "auto", marginTop: "50px", justifyContent: "center"}}>
-							<p style={{ margin: 0, fontWeight: "bold", paddingRight: "50px" }}>Set your username</p>
-							<Input placeholder="Username" value={this.state.username} onChange={e => this.handleUsername(e)} />
+							<p style={{ margin: 0, fontWeight: "bold", paddingRight: "50px",color:"white",}}>Set your username</p>
+							<Input placeholder="Username" value={this.state.username} onChange={e => this.handleUsername(e)} style={{color:"white"}} />
 							<Button variant="contained" color="primary" onClick={this.connect} style={{ margin: "10px" }}>Connect</Button>
 						</div>
 
@@ -484,7 +484,7 @@ export class Video extends Component {
 					</div>
 					:
 					<div>
-						<div className="btn-down" style={{ backgroundColor: "whitesmoke", color: "whitesmoke", textAlign: "center" }}>
+						<div className="btn-down" style={{ backgroundColor: "rgb(13, 1, 27)", color: "whitesmoke", textAlign: "center" }}>
 							<IconButton style={{ color: "#424242" }} onClick={this.handleVideo}>
 								{(this.state.video === true) ? <VideocamIcon /> : <VideocamOffIcon />}
 							</IconButton>
@@ -529,7 +529,7 @@ export class Video extends Component {
 
 						<div className="container">
 							<div style={{ paddingTop: "20px" }}>
-								<Input value={window.location.href} disable="true"></Input>
+								<Input value={window.location.href} disable="true" style={{color:"whitesmoke"}}></Input>
 								<Button style={{backgroundColor: "#3f51b5",color: "whitesmoke",marginLeft: "20px",
 									marginTop: "10px",width: "120px",fontSize: "10px"
 								}} onClick={this.copyUrl}>Copy invite link</Button>
@@ -538,7 +538,7 @@ export class Video extends Component {
 							<Row id="main" className="flex-container" style={{ margin: 0, padding: 0 }}>
 							
 								<video id="my-video" ref={this.localVideoref} autoPlay muted style={{
-									borderStyle: "solid",borderColor: "#bdbdbd",margin: "5px",objectFit: "fit",
+									borderStyle: "solid",borderColor: "#bdbdbd",margin: "8px",objectFit: "fit",
 									width: "100%",height: "100%"}}></video>
 								
 							</Row>

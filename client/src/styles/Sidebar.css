@@ -1,9 +1,10 @@
 .sidebar {
   display: flex;
   flex-direction: column;
-  flex: 0.25;
+  flex: 0.20;
   height: 100vh;
-  background-color: #2f3135;
+  background-color: rgb(13, 1, 27);  
+  border-right: 1px solid gray;
 }
 
 .sidebar__top {
@@ -11,9 +12,9 @@
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  background-color: #2f3135;
+  background-color: rgb(13, 1, 27);  
   color: white;
-  border-bottom: 3px solid #26282c;
+  border-bottom: 1px solid gray;
 }
 
 .sidebar__channels {
@@ -30,10 +31,11 @@
 
 .sidebar__addChannelIcon {
   cursor: pointer;
+  color: rgb(10, 14, 17);
 }
 
 .sidebar__addChannelIcon:hover {
-  color: white;
+  color: rgb(7, 150, 90);
 }
 
 .sidebar__channelsHeader {
@@ -41,28 +43,46 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  background-color: #2f3135;
+  background-color: rgb(13, 1, 27);  
   color: gray;
+  border-bottom: 1px solid gray;
 }
 
 .sidebar__header {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
-.sidebar__voice, .sidebar__profile {
+.sidebar__profile {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   color: gray;
-  background-color: #2f3135;
-  padding: 10px;
-  border-top: 1px solid gray;
+  background-color: rgb(13, 1, 27);  
+  padding: 16px;
+  border-top: 1px solid rgb(48, 41, 54);
+}
+#username{
+  color:azure;
+  font-size:medium;
+  font-weight: 800;
+}
+#roomname{
+  color:azure;
+  font-size:xx-large;
+  font-weight: 500;
+}
+#channel{
+  color: azure;
+  font-size: 26px;
+  font-weight: 400;
+  padding-left: 10%;
 }
 
-.sidebar__voiceInfo, .sidebar__profileInfo {
+.sidebar__profileInfo {
   flex: 1;
-  padding: 10px;
+  padding: 12px;
 }
 
 .sidebar__voiceIcon {
@@ -83,4 +103,14 @@
 
 .sidebar__profileInfo > h3 {
   color: white;
+}
+#signout{
+  color: rgb(206, 48, 56);
+  font-weight: 800;
+}
+#signout:hover{
+  color: rgb(206, 48, 56);
+  font-weight: 800;
+  cursor: pointer;
+  background-color: azure;
 }

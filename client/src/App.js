@@ -59,7 +59,7 @@ function App() {
                 <Login />
             )}
           </Route>
-          <Route path="/:url" component={Video} />
+          <Route path="/meeting/room/:name" component={Video} />
         </Switch>
       </Router>
     </div>

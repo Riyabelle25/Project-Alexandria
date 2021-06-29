@@ -6,7 +6,7 @@ import {
 import firebase from 'firebase';
 import '../styles/Chat.css';
 
-import ChatHeader from './ChatHeader';
+import Header from './Header';
 import Message from './Message';
 
 import db from '../app/firebase';
@@ -46,7 +46,7 @@ function Chat() {
 
   return (
     <div className="chat">
-      <ChatHeader channelName={channelName} />
+      <Header channelName={channelName} home={false} />
       <div className="chat__messages">
         {messages.map((message, index) => (
           <Message

@@ -50,12 +50,14 @@ const useStyles = makeStyles(() => ({
     // boxShadow: '0 6px 20px 0 #dbdbe8',
     backgroundColor: 'rgba(0,0,0,0.08)',
     transition: '0.4s',
-    height: '100%',
+    width: "36vw",
+    height: "27vh",
   },
   logo: {
-    width: 48,
-    height: 48,
+    width: "70px",
+    height: "60px",
     borderRadius: '0.75rem',
+
   },
   avatar: {
     fontFamily: 'Ubuntu',
@@ -63,7 +65,15 @@ const useStyles = makeStyles(() => ({
     backgroundColor: '#6d7efc',
   },
   join: {
-    background: 'linear-gradient(to top, #638ef0, #82e7fe)',
+    fontWeight:"bold",
+    background: 'linear-gradient(to top, #81c784, #388e3c)',
+    color:'azure',
+    width:'140px',
+    height: '60px',
+    marginTop: '10px',
+    borderRadius: '1rem',
+    marginLeft: '600px',
+    // background: 'linear-gradient(to top, #638ef0, #82e7fe)',
     '& > *': {
       textTransform: 'none !important',
     },
@@ -91,23 +101,22 @@ const CustomCard = ({
   return (
     <div className={styles.root}>
       <Column className={styles.card}>
-        <Row p={1} gap={1}>
-          <Avatar className={styles.logo} variant={'rounded'} src={thumbnail} />
-          <Info position={'middle'} useStyles={useApexInfoStyles}>
-            <InfoTitle>{title}</InfoTitle>
-            <InfoSubtitle>{subtitle}</InfoSubtitle>
+        <Row p={4} px={5}>
+          {/* <Avatar className={styles.logo} variant={'rounded'} src={thumbnail} /> */}
+          <Info position={'middle'} useStyles={useApexInfoStyles} style={{paddingLeft:"10px"}}>
+            <InfoTitle style={{fontSize:"30px", fontWeight:"100",color:"azure", marginLeft:-1}}>{title}</InfoTitle>
+            <InfoSubtitle style={{fontSize:"20px", fontWeight:"400",color:"grey", marginLeft:-1}}>{subtitle}</InfoSubtitle>
           </Info>
         </Row>
         <Box
-          pb={1}
-          px={2}
+          px={6}
           color={'grey.600'}
-          fontSize={'0.875rem'}
+          fontSize={'24px'}
           fontFamily={'Ubuntu'}
         >
           {description}
         </Box>
-        <Row p={4} gap={1} position={'bottom'}>
+        <Row p={1}>
           {/* <Item>
             <AvatarGroup max={4} classes={{ avatar: styles.avatar }}>
               {new Array(5).fill(0).map((_, index) => (
@@ -120,15 +129,15 @@ const CustomCard = ({
               ))}
             </AvatarGroup>
           </Item> */}
-          <Item position={'middle-right'}>
+          <Item >
           <Button
            className={styles.join}
            classes={btnStyles}
            variant={'contained'}
-           color={'primary'}
+           color={'success'}
            disableRipple
            onClick={event=>window.location.href=`/room/${title}`}
-         > Enter Room
+         > Enter
          {/* <a href={`/room/$`}>
           
          </a> */}

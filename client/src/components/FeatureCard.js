@@ -1,5 +1,5 @@
 import React from 'react';
-import { Add } from '@material-ui/icons';
+import { Add, VideoCall, LaptopChromebook } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import AvatarGroup from '@material-ui/lab/AvatarGroup';
@@ -24,32 +24,35 @@ const useStyles = makeStyles(() => ({
       height: '100%',
       content: '""',
       display: 'block',
-      backgroundColor: 'rgba(0,0,0,0.08)',
-      borderRadius: '1.5rem',
+      borderRadius: '2.5rem',
       zIndex: 0,
       bottom: 0,
     },
     '&:hover': {
-        transform: 'translateY(-4px)',
-      backgroundColor:"rgb(127, 136, 187)",
-      borderRadius: '1.5rem',
+      transform: 'translateY(-5px)',
+      backgroundColor:"#555",
+      borderRadius: '2.5rem',
       '&:before': {
         bottom: -6,
-        backgroundColor: 'rgba(0,0,0,0.08)',
       },
       '& $card': {
-        // boxShadow: '-8px 8px 56px 0 #bcc3d6',
+        boxShadow: '-3px 3px 36px 0 #555',
       },
+      '& $join': {
+        transform: 'translateY(-5px)',
+      }
     },
   },
   card: {
     zIndex: 1,
     position: 'relative',
-    borderRadius: '1rem',
-    // boxShadow: '0 6px 20px 0 #dbdbe8',
-    backgroundColor: 'rgba(0,0,0,0.08)',
+    borderRadius: '2.5rem',
+    boxShadow: '0 2px 12px 0 #1a237e',
+    // backgroundColor: 'rgba(0,0,0,0.08)',
     transition: '0.4s',
-    height: '100%',
+    // height: '100%',
+    width:'18vw',
+    height:"36vh",
   },
   logo: {
     width: 48,
@@ -62,7 +65,10 @@ const useStyles = makeStyles(() => ({
     backgroundColor: '#6d7efc',
   },
   join: {
-    background: 'linear-gradient(to top, #638ef0, #82e7fe)',
+    fontWeight:"bolder",
+    background: 'linear-gradient(to top, #81c784, #388e3c)',
+    color:'#c5cae9',
+    height:"5vh",
     '& > *': {
       textTransform: 'none !important',
     },
@@ -78,12 +84,14 @@ const useStyles = makeStyles(() => ({
 }));
 
 const CustomCard = ({
+  color,
   thumbnail,
   title,
   subtitle,
   description,
   newRoom,
   toJoin,
+  icon,
 }) => {
   const styles = useStyles();
   const iconBtnStyles = useSizedIconButtonStyles({ padding: 6 });
@@ -91,18 +99,24 @@ const CustomCard = ({
   const btnStyles = useGraphicBtnStyles();
   return (
     <div className={styles.root}>
-      <Column className={styles.card}>
-        <Row p={4} gap={2}>
-          <Info position={'middle'} useStyles={useApexInfoStyles}>
-            <InfoTitle>{title}</InfoTitle>
-            <InfoSubtitle>{subtitle}</InfoSubtitle>
-          </Info>
+      <Column className={styles.card} style={{backgroundColor:color}}>
+        <Row p={2} gap={4} justifyContent={"right"}>
+          { icon ? <LaptopChromebook style={{width:120,height:100, justifyContent:"flex-start", color:'#c5cae9'}}/>
+                  : <VideoCall style={{width:120,height:100, justifyContent:"flex-start", color:'#c5cae9'}}/>
+
+          }
+         
+          {/* <Info position={'middle'} useStyles={useApexInfoStyles}>
+            <InfoTitle style={{fontSize:"30px", color:"rgb(48, 41, 54)", marginLeft:-1}}>{title}</InfoTitle> */}
+{/* 
+          </Info> */}
         </Row>
         <Box
-          pb={1}
-          px={2}
-          color={'grey.600'}
-          fontSize={'0.875rem'}
+          marginTop={6}
+          px={4}
+          marginRight={8}
+          color={'rgb(48, 41, 54)'}
+          fontSize={'24px'}
           fontFamily={'Ubuntu'}
         >
           {description}
@@ -125,7 +139,7 @@ const CustomCard = ({
            className={styles.join}
            classes={btnStyles}
            variant={'contained'}
-           color={'primary'}
+           color={'success'}
            disableRipple
            onClick={newRoom}
          > {toJoin}

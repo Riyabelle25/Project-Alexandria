@@ -82,6 +82,7 @@
 
 .sidebar__profileInfo {
   flex: 1;
+  flex-direction: column;
   padding: 12px;
 }
 
@@ -107,10 +108,21 @@
 #signout{
   color: rgb(206, 48, 56);
   font-weight: 800;
+  padding-top: 3%;
+  background-color: rgb(68, 53, 80);
+  border-radius: 2rem;
+  padding-left: -3%;
+  padding-right: 5%;
+  margin-left: 3%;
 }
 #signout:hover{
   color: rgb(206, 48, 56);
   font-weight: 800;
   cursor: pointer;
-  background-color: azure;
+  transform: translateY(-2px);
+  background-color: rgb(68, 53, 80);
+  border-radius: 2rem;
+  padding-left: -3%;
+  padding-right: 5%;
+  padding-top: 3%;
 }

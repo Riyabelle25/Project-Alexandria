@@ -86,14 +86,29 @@ function Sidebar() {
       </div>
 
       <div className="sidebar__profile">
-        <Avatar onClick={() => auth.signOut()} src={user.photo} style={{marginLeft:"12px"}}/>
+        
         <div className="sidebar__profileInfo">
-          <h5 id="username">{user.displayName}</h5>
           <Row>
-          <Item paddingRight={20}> <text>#{user.uid.substring(0, 5)}</text></Item>
-          <Item id="signout"><SettingsApplicationsRounded/>
-          <text >Sign out</text>
-          </Item>          
+          <Item paddingLeft={2}> 
+          <h5 id="username">{user.displayName}</h5>
+          <text>#{user.uid.substring(0, 5)}</text>          
+          </Item>
+
+          <Item id="signout" onClick={() => auth.signOut()}>
+          <Column>
+          <Row>
+            <Item paddingRight={2}>
+            <Avatar  src={user.photo} style={{marginLeft:"24px"}}>
+              
+            </Avatar>
+            </Item>
+            <Item paddingTop={1}>
+            <text >Sign out</text>
+            </Item>
+          </Row>
+          </Column>
+          </Item>   
+
           </Row>          
         </div>
       </div>

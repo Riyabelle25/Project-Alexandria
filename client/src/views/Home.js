@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import db, { auth } from '../app/firebase';
+import db, { auth, firebase } from '../app/firebase';
 import { makeStyles } from '@material-ui/core/styles';
 
 import RoomCard from '../components/RoomCard';
@@ -14,24 +14,33 @@ import Header from '../components/Header';
    const [rooms, setRooms] = useState([]);
    const [messages, setMessages] = useState([]);
    
-
     useEffect(() => {
-      db.collection('rooms').onSnapshot((snapshot) =>
-        setRooms(
-          snapshot.docs.map((doc) => ({
-            roomName: doc.id,
-          }))
-        )
-      );
+    db.collection("rooms").where("users", "array-contains-any", [`${auth.currentUser.email}`,"public"])
+    .get()
+    .then((querySnapshot) => {
+      setRooms(
+        querySnapshot.docs.map((doc) => 
+        ({
+          roomName: doc.id,
+              })        
+        ))
+            } 
+          ).catch((error) => {
+        console.log("Error getting documents: ", error);
+    });
     }, []);
+    console.log(rooms);
 
     const handleAddRoom = () => {
         const roomName = prompt('Enter a new room name');    
         if (roomName) {
-        db.collection('rooms').doc(roomName).set({roomName:roomName});
-        db.collection("users").doc(auth.currentUser.uid).update({roomName:roomName});
-      };
-  
+        db.collection('rooms').doc(roomName).set(
+          {roomName:roomName});     
+      db.collection('rooms').doc(roomName).update(
+        {roomName:roomName,
+        users: firebase.firestore.FieldValue.arrayUnion(`${auth.currentUser.email}`)
+    });  
+      }; 
     }
     // db.collection("cities").get()
     // useEffect(() => {
@@ -65,11 +74,10 @@ import Header from '../components/Header';
             <Row paddingTop={2}>            
               <RoomCard 
               title = {roomName} 
-              subtitle={'Time'}
+              subtitle={'28 June 2021 9:01 PM'}
               description={
               <>
-                <b>Shining Alpaca</b> and 3 others are already members of this
-                group.
+                <b>Aishwariya:</b> Hi guys, when is the next meeting?
               </>
             } />                
             </Row>                                                      
@@ -90,7 +98,7 @@ import Header from '../components/Header';
                 <b>Start a group Meeting</b> and invite others to join in
               </>
             } 
-            newRoom={handleAddRoom}
+            newRoom={()=> window.location.href=`/meeting/home/${Math.floor(Math.random()* 33)*1000}`} 
             toJoin= {"Start a Meeting"}
             icon={true}
             />

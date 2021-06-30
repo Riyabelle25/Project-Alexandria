@@ -44,6 +44,7 @@ function App() {
           { 
           user ? 
           (<><Home /></>
+          
             ) : (
               <Login />
             )}
@@ -59,7 +60,27 @@ function App() {
                 <Login />
             )}
           </Route>
-          <Route path="/meeting/room/:name" component={Video} />
+          <Route path="/meeting/home/:name">
+          {
+            user ? (
+              <>
+               <Video user={user} />
+              </>
+            ) : (
+                <Login />
+            )}
+          </Route>
+          <Route path="/meeting/room/:name" component={Video}>
+          {
+            user ? (
+              <>
+               <Video user={user} />
+              </>
+            ) : (
+                <Login />
+            )}
+          </Route>
+          <Route path="/meeting/:random" component={Video} />
         </Switch>
       </Router>
     </div>

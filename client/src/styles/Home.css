@@ -45,7 +45,7 @@
   padding-top: 2vh;
   /* margin-top: 50; */
   width: 4px;
-  height: 75vh;
+  height: 1px;
 }
 
 /* Track */
@@ -56,7 +56,6 @@
 /* Handle */
 .left__container::-webkit-scrollbar-thumb {
   background: linear-gradient(to top, #81c784, #4b8a4e);
-  width: 7px;
 }
 
 /* Handle on hover */

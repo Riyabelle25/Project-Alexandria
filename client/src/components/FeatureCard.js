@@ -100,7 +100,7 @@ const CustomCard = ({
   return (
     <div className={styles.root}>
       <Column className={styles.card} style={{backgroundColor:color}}>
-        <Row p={2} gap={4} justifyContent={"right"}>
+        <Row p={2} gap={4} justifyContent={"right"} flexBasis={"auto"}>
           { icon ? <LaptopChromebook style={{width:120,height:100, justifyContent:"flex-start", color:'#c5cae9'}}/>
                   : <VideoCall style={{width:120,height:100, justifyContent:"flex-start", color:'#c5cae9'}}/>
 
@@ -112,16 +112,17 @@ const CustomCard = ({
           </Info> */}
         </Row>
         <Box
-          marginTop={6}
-          px={4}
+        flexBasis={"auto"}
+          marginTop={1}
+          px={2}
           marginRight={8}
           color={'rgb(48, 41, 54)'}
-          fontSize={'24px'}
+          fontSize={'120%'}
           fontFamily={'Ubuntu'}
         >
           {description}
         </Box>
-        <Row p={4} gap={1} position={'bottom'}>
+        <Row p={2} gap={1} position={'bottom'} flexBasis={"auto"}>
           {/* <Item>
             <AvatarGroup max={4} classes={{ avatar: styles.avatar }}>
               {new Array(5).fill(0).map((_, index) => (
@@ -134,7 +135,7 @@ const CustomCard = ({
               ))}
             </AvatarGroup>
           </Item> */}
-          <Item position={'middle-right'}>
+          <Item position={'middle-right'} alignContent={"flex-end"} paddingRight={"2%"}>
            <Button
            className={styles.join}
            classes={btnStyles}

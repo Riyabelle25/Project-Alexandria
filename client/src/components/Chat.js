@@ -57,7 +57,7 @@ function Chat() {
           />
         ))}
       </div>
-      <div className="chat__input">
+      <div className="chat__input" >
         <form>
           <input
             disabled={!channelId}
@@ -68,7 +68,9 @@ function Chat() {
                 : 'Please select a channel first!'
             }
             type="text"
-            value={messageInput}/>    
+            value={messageInput}
+            style={{color:"white"}}
+            />    
             <button
             className="chat__inputButton_hidden"
             onClick={sendMessage}

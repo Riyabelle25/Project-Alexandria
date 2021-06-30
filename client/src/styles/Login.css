@@ -1,20 +1,19 @@
 .login {
   display: grid;
   place-items: center;
+  background-color: rgb(13, 1, 27);
   height: 100%;
   width: 100%;
 }
 
 .login > button {
   width: 300px;
-  background-color: bisque;
   color: black;
   font-weight: 800;
 }
 
 .login > button:hover {
   background-color: white;
-  color:brown;
 }
 
 .login > div > img {
@@ -28,24 +27,44 @@
   pointer-events: none;
   padding: 5%;
 }
-/* .MuiButton-root,.MuiButton-label{
-  width: 10%;
-  height: 7vh;
-  background-color: rgb(207, 207, 149);
-  color: rgb(34, 2, 2);
-  border-radius: 17%;
-  font-size: medium;
-} */
+#login-btn:hover{
+  transform: translateY(-5px);
+  background-color:rgb(226, 206, 206);
+  border-radius: 2.5rem;
+  box-shadow: -3px 3px 36px 0 rgb(214, 212, 212);
+
+}
+#video-call{
+  margin-left: 7%;
+}
+#video-call:hover{
+  transform: translateY(-5px);
+  background-color:rgb(226, 206, 206);
+  border-radius: 2.5rem;
+  box-shadow: -3px 3px 36px 0 rgb(214, 212, 212);
+}
 #welcome-msg{
-  color: rgb(34, 2, 2);
+  color: rgb(49, 7, 83);
+  font-family:'Lucida Grande';
+  font-weight: 500;
 }
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
+.App-logo {
     animation: App-logo-bounce 4s ease 0s infinite;
-    /* name duration timing-function delay iteration-count direction fill-mode; */
+   
+  }  
+  
+  #paper{
+    animation: paper-bounce 4s ease 0s infinite;
   }
 }
-@keyframes App-logo-bounce {
+ @keyframes App-logo-bounce {
+  0%   { transform: translateY(0); }
+        50%  { transform: translateY(50px); }
+        100% { transform: translateY(0); }
+} 
+
+@keyframes paper-bounce {
   0%   { transform: translateY(0); }
         50%  { transform: translateY(50px); }
         100% { transform: translateY(0); }

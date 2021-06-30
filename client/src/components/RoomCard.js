@@ -72,7 +72,8 @@ const useStyles = makeStyles(() => ({
     height: '60px',
     marginTop: '10px',
     borderRadius: '1rem',
-    marginLeft: '600px',
+    alignContent: 'flex-end',
+    // marginLeft: '600px',
     // background: 'linear-gradient(to top, #638ef0, #82e7fe)',
     '& > *': {
       textTransform: 'none !important',
@@ -101,22 +102,22 @@ const CustomCard = ({
   return (
     <div className={styles.root}>
       <Column className={styles.card}>
-        <Row p={4} px={5}>
+        <Row p={3} px={5}>
           {/* <Avatar className={styles.logo} variant={'rounded'} src={thumbnail} /> */}
           <Info position={'middle'} useStyles={useApexInfoStyles} style={{paddingLeft:"10px"}}>
-            <InfoTitle style={{fontSize:"30px", fontWeight:"100",color:"azure", marginLeft:-1}}>{title}</InfoTitle>
-            <InfoSubtitle style={{fontSize:"20px", fontWeight:"400",color:"grey", marginLeft:-1}}>{subtitle}</InfoSubtitle>
+            <InfoTitle style={{fontSize:"140%", fontWeight:"100",color:"azure", marginLeft:-1}}>{title}</InfoTitle>
+            <InfoSubtitle style={{fontSize:"80%", fontWeight:"400",color:"grey", marginLeft:-1}}>{subtitle}</InfoSubtitle>
           </Info>
         </Row>
         <Box
           px={6}
           color={'grey.600'}
-          fontSize={'24px'}
+          fontSize={'100%'}
           fontFamily={'Ubuntu'}
         >
           {description}
         </Box>
-        <Row p={1}>
+        <Row p={1} justifyContent={"flex-end"}>
           {/* <Item>
             <AvatarGroup max={4} classes={{ avatar: styles.avatar }}>
               {new Array(5).fill(0).map((_, index) => (
@@ -129,7 +130,7 @@ const CustomCard = ({
               ))}
             </AvatarGroup>
           </Item> */}
-          <Item >
+          <Item alignContent={"flex-end"} paddingRight={"2%"}>
           <Button
            className={styles.join}
            classes={btnStyles}

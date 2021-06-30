@@ -49,7 +49,7 @@
       "react-app/jest"
     ]
   },
-  "proxy": "http://localhost:8080",
+  "proxy": "https://alexandria-server.azurewebsites.net",
   "browserslist": {
     "production": [
       ">0.2%",

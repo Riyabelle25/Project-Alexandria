@@ -31,7 +31,7 @@ function ChatHeader({ channelName="", home, user="" }) {
                   <Column>
                   <Row>
                     <Item paddingRight={2}>
-                    <Avatar  src={user.photoURL} style={{marginLeft:"24px"}}>                      
+                    <Avatar  src={user.photoURL} style={{marginLeft:"24px", paddingTop:"4"}}>                      
                     </Avatar>
                     </Item>
                     <Item paddingTop={1}>

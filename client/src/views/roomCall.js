@@ -1,7 +1,7 @@
 /* eslint-disable no-loop-func */
 import React, { Component } from 'react'
 import faker from "faker"
-
+import db, { auth } from '../app/firebase';
 import {IconButton, Badge, Input, Button} from '@material-ui/core'
 import VideocamIcon from '@material-ui/icons/Videocam'
 import VideocamOffIcon from '@material-ui/icons/VideocamOff'
@@ -20,8 +20,8 @@ import Modal from 'react-bootstrap/Modal'
 import 'bootstrap/dist/css/bootstrap.css'
 import "../styles/Video.css"
 const io = require("socket.io-client");
-const server_url = "http://localhost:8080"
-// https://alexandria-server.azurewebsites.net
+const server_url = "https://alexandria-server.azurewebsites.net" 
+//http://localhost:8080 
 
 
 var connections = {}
@@ -37,9 +37,10 @@ const peerConnectionConfig = {
 		},
 	]
 }
-var socket = null
-var socketId = null
-var elms = 0
+var socket = null;
+var socketId = null;
+var elms = 0;
+var userName = faker.internet.userName();
 
 export class Video extends Component {
 	constructor(props) {
@@ -49,6 +50,10 @@ export class Video extends Component {
 
 		this.videoAvailable = false
 		this.audioAvailable = false
+
+		if(props.user!=null){
+			userName=auth.currentUser.displayName
+		}
 
 		this.state = {
 			video: false,
@@ -60,7 +65,7 @@ export class Video extends Component {
 			message: "",
 			newmessages: 0,
 			askForUsername: true,
-			username: faker.internet.userName(),
+			username: userName,
 		}
 		connections = {}
 
@@ -310,7 +315,8 @@ export class Video extends Component {
 					connections[socketListId].onicecandidate = function (event) {
 						console.log("335: about to be iced");
 						if (event.candidate != null) {
-							console.log("337: event not null!");
+							console.log("event.candidate", event.candidate);
+							console.log('signal', socketListId, JSON.stringify({ 'ice': event.candidate }));
 							socket.emit('signal', socketListId, JSON.stringify({ 'ice': event.candidate }))
 						} else {console.log("339: event is null");}
 					}
@@ -473,7 +479,7 @@ export class Video extends Component {
 						<div style={{background: "rgb(13, 1, 27)", color: "white",width: "30%", height: "auto", padding: "10px", minWidth: "400px",
 								textAlign: "center", margin: "auto", marginTop: "50px", justifyContent: "center"}}>
 							<p style={{ margin: 0, fontWeight: "bold", paddingRight: "50px",color:"white",}}>Set your username</p>
-							<Input placeholder="Username" value={this.state.username} onChange={e => this.handleUsername(e)} style={{color:"white"}} />
+							<Input placeholder="Username" value={this.state.username} onChange={e => this.handleUsername(e)} style={{paddingLeft:"2%",backgroundColor:"azure", color:"rgb(13, 1, 27)"}} />
 							<Button variant="contained" color="primary" onClick={this.connect} style={{ margin: "10px" }}>Connect</Button>
 						</div>
 

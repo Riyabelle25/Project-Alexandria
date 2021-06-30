@@ -46,7 +46,7 @@ a:hover{
   color: #4fb185;
 }
 #signout{
-  color: rgb(141, 133, 148);
+  color: rgb(199, 184, 212);
   font-weight: 800;
   /* padding-top: 3%; */
   background-color: linear-gradient(to top, #81c784, #4b8a4e);
@@ -57,7 +57,7 @@ a:hover{
   /* margin-left: 3%; */
 }
 #signout:hover{
-  color: rgb(141, 133, 148);
+  color: linear-gradient(to top, #81c784, #4b8a4e);
   font-weight: 800;
   cursor: pointer;
   transform: translateY(-2px);

@@ -17,7 +17,7 @@
   } */
   .right__container{
     display: flex;
-    flex: 0.5;
+    flex: 0.3;
     flex-direction: column;
     /* flex-basis: 50%; */
     /* align-items: center; */
@@ -25,13 +25,29 @@
     overflow: hidden;
     height:100%; 
   }
-  .left__container {  
-    flex: 0.5;
+  .feature-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 3%;
+    padding-top: 5%;
+    /* border-bottom: 2px solid rgb(48, 41, 54) ; */
+  }
+  .left__container{
+    display: flex;
+    flex: 0.3;
+    border-right: 2px solid rgb(48, 41, 54); 
+    flex-direction: column;
+    align-items: center;
+  }
+  .rooms-container{  
+    flex: 0.4;
     scroll-behavior: smooth;
     /* min-height: 100%; */
     /* padding-top: 64%; */
     /* padding-bottom: 64%; */
-    border-left: 1px solid rgb(48, 41, 54); 
+    
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -41,7 +57,7 @@
   }
 
   /* width */
-.left__container::-webkit-scrollbar {
+.rooms-container::-webkit-scrollbar {
   padding-top: 2vh;
   /* margin-top: 50; */
   width: 4px;
@@ -49,26 +65,26 @@
 }
 
 /* Track */
-.left__container::-webkit-scrollbar-track {
+.rooms-container::-webkit-scrollbar-track {
   background: rgb(48, 41, 54);
 }
 
 /* Handle */
-.left__container::-webkit-scrollbar-thumb {
+.rooms-container::-webkit-scrollbar-thumb {
   background: linear-gradient(to top, #81c784, #4b8a4e);
 }
 
 /* Handle on hover */
-.left__container::-webkit-scrollbar-thumb:hover {
+.rooms-container::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
-  .new-meeting{   
+  .add-room{   
     padding-top: 5%; 
     padding-right: 3%;
-   padding-left: 12%;
+   padding-left: 3%;
   }
-  .add-room{
+  .new-meeting{
     padding-top: 5%; 
-    padding-left: 2%;
-   padding-right: 10%;
+    /* padding-left: 2%; */
+   /* padding-right: 3%; */
   }

@@ -7,7 +7,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import { useCoverCardMediaStyles } from '@mui-treasury/styles/cardMedia/cover';
 import Chat from './Chat';
-import { Button } from '@material-ui/core';
+import { Button, IconButton } from '@material-ui/core';
 const useStyles = makeStyles((width) => ({
   card: {
     display: "inline-block",
@@ -43,7 +43,7 @@ const useStyles = makeStyles((width) => ({
     zIndex: 1,
     '&:after': {
       content: '""',
-      position: 'absolute',
+      position: 'relative',
       bottom: 0,
       display: 'block',
       width: '100%',
@@ -53,7 +53,7 @@ const useStyles = makeStyles((width) => ({
     paddingTop:'2rem',
   },
   content: {
-    position: 'absolute',
+    position: 'relative',
     bottom: 0,
     width: '100%',
     zIndex: 1,
@@ -88,6 +88,11 @@ const useStyles = makeStyles((width) => ({
 export const RoundCard = React.memo(function News3Card(props) {
   const styles = useStyles(props.width);
   const mediaStyles = useCoverCardMediaStyles();
+
+  const handleConnect = () => {
+    this.socket.emit('want-to-meet',{sender:props.sender,receiver:props.receiver, meet: props.meet});
+    window.location.href=props.meet;
+}   
   return (
     <>   
       <Card className={styles.card}>
@@ -101,8 +106,9 @@ export const RoundCard = React.memo(function News3Card(props) {
           /> */}
           <div className={styles.content}>
            <Typography variant={'h2'} className={styles.title}>
-              <a href={`/room/${props.roomName}`}>{props.roomName} </a>
+              
             </Typography>
+            
           </div>
         </Box>
         {/* <div className={styles.shadow} />

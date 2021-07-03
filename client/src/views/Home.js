@@ -70,7 +70,7 @@ const ENDPOINT = "https://alexandria-server.azurewebsites.net";
         <Header user={auth.currentUser} home={true} />
       <div className="home__container">
           <div className="left__container"> 
-          <h3 style={{color:"gray", paddingTop:"5%", fontWeight={"300"}}}>Active Users</h3>
+          <h3 style={{color:"gray", paddingTop:"5%"}}>Active Users</h3>
             {users!=null ? (
               users.map((user) => (   
                

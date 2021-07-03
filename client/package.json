@@ -75,33 +75,13 @@
   "babel": {
     "presets": [
       "@babel/preset-env",
-      "@babel/preset-react",
-      {
-        "modules": "auto"
-      }
+      "@babel/preset-react"
     ],
     "plugins": [
       "transform-class-properties"
-    ],
-    "env": {
-      "test": {
-        "presets": [
-          [
-            "@babel/preset-env",
-            {
-              "modules": "auto"
-            },
-            "jest"
-          ]
-        ],
-        "plugins": [
-          "@babel/plugin-transform-runtime"
-        ]
-      }
-  }
+    ]
   },
   "jest": {
-    "transform": {},
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "../../__mocks__/fileMock.js",
       "\\/(App.css)": "../__mocks__/styleMock.js",

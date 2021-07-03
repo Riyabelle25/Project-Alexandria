@@ -1,13 +1,10 @@
 import React from 'react';
-import { Column, Row, Item } from '@mui-treasury/components/flex';
-import { Button } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import { Row, Item } from '@mui-treasury/components/flex';
 import Paper from '@material-ui/core/Paper';
-import wall from '../texture-wall.jpeg';
+import wall from '../assets/texture-wall.jpeg';
 import { auth, provider } from '../app/firebase';
 import '../styles/Login.css';
-import logo from '../alexandria.svg'
-import { urlAlphabet } from 'nanoid';
+import logo from '../assets/alexandria.svg'
 
 function Login() {
   const signIn = () => {

@@ -1,7 +1,7 @@
 /* eslint-disable no-loop-func */
 import React, { Component } from 'react'
 import faker from "faker"
-import db, { auth } from '../app/firebase';
+import { auth } from '../app/firebase';
 import {IconButton, Badge, Input, Button} from '@material-ui/core'
 import VideocamIcon from '@material-ui/icons/Videocam'
 import VideocamOffIcon from '@material-ui/icons/VideocamOff'

@@ -3,7 +3,7 @@ import './styles/App.css';
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import {IconButton, Badge, Input, Button} from '@material-ui/core';
+import {Button} from '@material-ui/core';
 import { ToConnect } from './components/ToConnect';
 import { Video } from './views/roomCall'
 import Sidebar from './components/Sidebar';
@@ -11,7 +11,7 @@ import Chat from './components/Chat';
 import Login from './views/Login';
 import Home from './views/Home';
 
-import db, { auth } from './app/firebase';
+import { auth } from './app/firebase';
 import { login, logout, selectUser } from './slice/userSlice';
 import Modal from 'react-bootstrap/Modal'
 import socketIOClient from "socket.io-client";

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import {IconButton, Badge, Input, Button} from '@material-ui/core'
-import db, { auth, firebase } from '../app/firebase';
+import {Button} from '@material-ui/core'
+import { auth } from '../app/firebase';
 import Modal from 'react-bootstrap/Modal'
 import socketIOClient from "socket.io-client";
 const ENDPOINT = "http://localhost:8080";

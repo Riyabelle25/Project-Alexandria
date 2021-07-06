@@ -20,7 +20,7 @@ import Modal from 'react-bootstrap/Modal'
 import 'bootstrap/dist/css/bootstrap.css'
 import "../styles/Video.css"
 const io = require("socket.io-client");
-const server_url = "https://alexandria-server.azurewebsites.net" 
+const server_url = "http://localhost:8080" 
 // http://localhost:8080 
 // https://alexandria-server.azurewebsites.net
 

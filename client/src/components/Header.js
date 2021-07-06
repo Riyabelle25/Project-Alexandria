@@ -4,7 +4,7 @@ import { Column, Row, Item } from '@mui-treasury/components/flex';
 import '../styles/Header.css';
 import { useParams } from 'react-router-dom';
 import { Avatar } from '@material-ui/core';
-import {VideoCall,SettingsApplicationsRounded} from '@material-ui/icons';
+import {VideoCall} from '@material-ui/icons';
 
 function ChatHeader({ channelName="", home, user="" }) {
 

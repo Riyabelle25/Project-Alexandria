@@ -1,19 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import db, { auth, firebase } from '../app/firebase';
-// import {socket } from '../components/ToConnect';
-import { makeStyles } from '@material-ui/core/styles';
-import RoundCard from '../components/RoundCard';
 import RoomCard from '../components/RoomCard';
 import FeatureCard from '../components/FeatureCard';
-import { Column, Row, Item } from '@mui-treasury/components/flex';
+import { Row, Item } from '@mui-treasury/components/flex';
 
 import { Button } from '@material-ui/core';
 import '../styles/Home.css'
 import Header from '../components/Header';
-import { MeetingRoomSharp } from '@material-ui/icons';
 import socketIOClient from "socket.io-client";
 
-const ENDPOINT = "https://alexandria-server.azurewebsites.net";
+const ENDPOINT = "http://localhost:8080";
 
  export const Home = function(){
    const [rooms, setRooms] = useState([]);
@@ -21,7 +17,7 @@ const ENDPOINT = "https://alexandria-server.azurewebsites.net";
    const socket = socketIOClient(ENDPOINT);
 
     useEffect(() => {
-      db.collection("users").get()
+      db.collection("users").orderBy("userName", 'desc').get()
       .then((querySnapshot) => {
         setUsers(
           querySnapshot.docs.map((doc) => ({
@@ -32,7 +28,7 @@ const ENDPOINT = "https://alexandria-server.azurewebsites.net";
       }).catch((error) => {
         console.log("Error getting users", error);
       });
-    }, []);
+    }, [users]);
     console.log(users);
    
     useEffect(() => {
@@ -49,7 +45,7 @@ const ENDPOINT = "https://alexandria-server.azurewebsites.net";
           ).catch((error) => {
         console.log("Error getting documents: ", error);
     });
-    }, []);
+    }, [rooms]);
     console.log(rooms);
 
     const handleAddRoom = () => {
@@ -57,11 +53,13 @@ const ENDPOINT = "https://alexandria-server.azurewebsites.net";
         if (roomName) {
         db.collection('rooms').doc(roomName).set(
           {roomName:roomName});     
-      db.collection('rooms').doc(roomName).update(
-        {roomName:roomName,
-        users: firebase.firestore.FieldValue.arrayUnion(`${auth.currentUser.email}`)
-    });  
-      }; 
+        db.collection('rooms').doc(roomName).update(
+          {roomName:roomName,
+          users: firebase.firestore.FieldValue.arrayUnion(`${auth.currentUser.email}`)
+          });  
+        db.collection("rooms").doc(roomName).collection('channels').doc("general").set(
+          {channelName: "general"}
+          );}; 
     }
     const meet = `/meeting/home/${Math.floor(Math.random()* 33)*1000}`;
 
@@ -69,13 +67,13 @@ const ENDPOINT = "https://alexandria-server.azurewebsites.net";
       <div className="home">
         <Header user={auth.currentUser} home={true} />
       <div className="home__container">
-          <div className="left__container"> 
-          <h3 style={{color:"gray", paddingTop:"5%"}}>Active Users</h3>
+          <div className="left__container" > 
+          <h3 style={{color:"azure", paddingTop:"5%", fontWeight:"100"}}>Active Users</h3>
             {users!=null ? (
               users.map((user) => (   
                
-                <Row paddingTop={1}>
-                  <Item><h5 style={{color:"white"}}>{user.userName} </h5></Item>
+                <Row paddingTop={1} textAlign={"flex-start"} justifyContent={"flex-start"} style={{textAlign:"flex-start", justifyContent:"left"}}>
+                  <Item ><h5 style={{color:"rgb(196, 181, 211)", fontSize:"1.25vw"}}>{user.userName} </h5></Item>
                   <Item marginLeft={4}>
                   <Button 
                     style={{color:"white", backgroundColor:"green"}}
@@ -99,7 +97,8 @@ const ENDPOINT = "https://alexandria-server.azurewebsites.net";
               }
           </div>
           <div  className="rooms-container">
-            <h3 style={{color:"gray", paddingTop:"5%"}}>Your Rooms</h3>
+            <h3 style={{color:"azure", paddingTop:"5%", fontWeight:"100"}}>Your Rooms (that you have joined)</h3>
+            <h5 style={{color:"rgb(196, 181, 211)"}}> To add another room to your list, <b onClick={handleAddRoom} id="join-room">Join Room </b></h5>
               {rooms.map(({roomName,key}) => (   
               <Row paddingTop={1}>            
                 <RoomCard 
@@ -116,7 +115,6 @@ const ENDPOINT = "https://alexandria-server.azurewebsites.net";
                   <FeatureCard 
                       color={'#1976d2'}
                       title={'Create new Meeting'}
-                      subtitle={'Created by siriwatknp'}
                       description={
                         <Item flexShrink={0.1}>
                           <b>Start a group Meeting</b> and invite others to join in
@@ -133,14 +131,13 @@ const ENDPOINT = "https://alexandria-server.azurewebsites.net";
                     <FeatureCard 
                     color={'#ff9800'}
                     title={'Add a Room '}
-                    subtitle={'Created by siriwatknp'}
                     description={
                       <>
-                        <b>Create a Room</b> and open a workspace in Alexandria
+                        <b>Join a Room</b> by entering its name. If it doesn't exist yet, a new room will be created for you!
                       </>
                     } 
                     newRoom={handleAddRoom}
-                    toJoin= {"Add a Room"}
+                    toJoin= {"Join a Room"}
                     icon={false}
                     />
                 </div>

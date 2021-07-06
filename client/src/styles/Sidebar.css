@@ -1,7 +1,7 @@
 .sidebar {
   display: flex;
   flex-direction: column;
-  flex: 0.20;
+  flex: 0.22;
   height: 100vh;
   background-color: rgb(13, 1, 27);  
   border-right: 1px solid gray;
@@ -106,13 +106,14 @@
   color: white;
 }
 #signout{
+  font-size: 1vw;
   color: rgb(206, 48, 56);
   font-weight: 800;
   padding-top: 3%;
   background-color: rgb(68, 53, 80);
   border-radius: 2rem;
-  padding-left: -3%;
-  padding-right: 5%;
+  /* padding-left: -3%; */
+  /* padding-right: 1%; */
   margin-left: 3%;
 }
 #signout:hover{
@@ -122,7 +123,7 @@
   transform: translateY(-2px);
   background-color: rgb(68, 53, 80);
   border-radius: 2rem;
-  padding-left: -3%;
-  padding-right: 5%;
+  /* padding-left: -3%;
+  padding-right: 5%; */
   padding-top: 3%;
 }

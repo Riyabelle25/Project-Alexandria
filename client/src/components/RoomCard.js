@@ -104,7 +104,7 @@ const CustomCard = ({
       <Column className={styles.card}>
         <Row p={4} px={7} justifyContent={"space-between"} alignContent={"center"}>
           <Info position={'middle'} useStyles={useApexInfoStyles} style={{paddingLeft:"10px"}}>
-            <InfoTitle style={{fontSize:"140%", fontWeight:"100",color:"azure", marginLeft:-1}}>{title}</InfoTitle>          
+            <InfoTitle style={{fontSize:"1.5vw", fontWeight:"100",color:"azure", marginLeft:-1}}>{title}</InfoTitle>          
           </Info>
           <Item alignContent={"flex-end"}>
           <Button

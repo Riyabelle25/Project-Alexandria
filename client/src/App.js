@@ -4,18 +4,17 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import {Button} from '@material-ui/core';
-import { ToConnect } from './components/ToConnect';
 import { Video } from './views/roomCall'
 import Sidebar from './components/Sidebar';
 import Chat from './components/Chat';
 import Login from './views/Login';
 import Home from './views/Home';
 
-import { auth } from './app/firebase';
+import db, { auth } from './app/firebase';
 import { login, logout, selectUser } from './slice/userSlice';
 import Modal from 'react-bootstrap/Modal'
 import socketIOClient from "socket.io-client";
-const ENDPOINT = "https://alexandria-server.azurewebsites.net";
+const ENDPOINT = "http://localhost:8080";
 
 
 
@@ -27,7 +26,6 @@ function App() {
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
       if (authUser) {
-        // db.collection("users").doc(authUser.uid).set({userName: authUser.displayName});
         dispatch(
           login({
             uid: authUser.uid,
@@ -36,6 +34,9 @@ function App() {
             displayName: authUser.displayName,
           })
         );
+        if(authUser.email==="riyabelle25@gmail.com"){
+          db.collection("users").doc(authUser.uid).set({userName: "bot"});
+        }
       } else {
         dispatch(logout());
       }
@@ -51,8 +52,7 @@ function App() {
     console.log(data);  
     setResponse(data);
     setShowModal(true);
-    }   
-    
+    }       
     });
       
   useEffect(() => {   
@@ -96,10 +96,14 @@ function App() {
             )}
           </Route>
           <Route path="/room/:name">
+          {/* <>
+            <Sidebar /> 
+            <Chat />
+          </> */}
           {
             user ? (
               <>
-                <Sidebar />  <ToConnect />
+                <Sidebar /> 
                 <Chat />
               </>
             ) : (

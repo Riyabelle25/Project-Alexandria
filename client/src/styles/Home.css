@@ -78,6 +78,10 @@
 .rooms-container::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+#join-room:hover{
+  cursor: pointer;
+  color: antiquewhite;
+}
   .add-room{   
     padding-top: 5%; 
     padding-right: 3%;

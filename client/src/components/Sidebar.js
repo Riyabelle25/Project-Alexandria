@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { useSelector } from 'react-redux';
 import '../styles/Sidebar.css';
 import { Avatar } from '@material-ui/core';
-import {Add, SettingsApplicationsRounded} from '@material-ui/icons';
+import {Add} from '@material-ui/icons';
 import { Column, Row, Item } from '@mui-treasury/components/flex';
 import SidebarChannel from './SidebarChannel';
 import IconButton from '@material-ui/core/IconButton';
@@ -31,9 +31,9 @@ function Sidebar() {
       )}}, (error) => {
         console.log(error);
     }
-        );
-      
-  }, []);
+        );   
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [channels]);
   const useStyles = makeStyles(() => ({
     action: {
       backgroundColor: '#fff',
@@ -48,7 +48,6 @@ function Sidebar() {
   const handleAddChannel = () => {
     const channelName = prompt('Enter a new channel name');
     
-
     if (channelName) {
       db.collection("rooms").doc(roomName).collection('channels').add({
         channelName,
@@ -94,16 +93,16 @@ function Sidebar() {
           <text>#{user.uid.substring(0, 5)}</text>          
           </Item>
 
-          <Item id="signout" onClick={() => auth.signOut()}>
+          <Item id="signout" onClick={() => auth.signOut()} width={"10vw"} height={"7vh"}>
           <Column>
           <Row>
             <Item paddingRight={2}>
-            <Avatar  src={user.photo} style={{marginLeft:"24px"}}>
+            <Avatar  src={user.photo} style={{marginLeft:"18px"}}>
               
             </Avatar>
             </Item>
-            <Item paddingTop={1}>
-            <text >Sign out</text>
+            <Item paddingTop={1.5} fontSize={"0.75vw"} paddingRight={"6px"}>
+            Sign out
             </Item>
           </Row>
           </Column>

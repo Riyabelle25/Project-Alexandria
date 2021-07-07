@@ -2,7 +2,7 @@ import React from 'react';
 import { Row, Item } from '@mui-treasury/components/flex';
 import Paper from '@material-ui/core/Paper';
 import wall from '../assets/texture-wall.jpeg';
-import { auth, provider } from '../app/firebase';
+import db, { auth, provider } from '../app/firebase';
 import '../styles/Login.css';
 import logo from '../assets/alexandria.svg'
 

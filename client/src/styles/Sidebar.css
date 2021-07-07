@@ -60,7 +60,7 @@
   align-items: center;
   color: gray;
   background-color: rgb(13, 1, 27);  
-  padding: 16px;
+  padding: 14px;
   border-top: 1px solid rgb(48, 41, 54);
 }
 #username{
@@ -70,7 +70,7 @@
 }
 #roomname{
   color:azure;
-  font-size:xx-large;
+  font-size:2.5vw;
   font-weight: 500;
 }
 #channel{
@@ -78,6 +78,7 @@
   font-size: 26px;
   font-weight: 400;
   padding-left: 10%;
+  font-size: 1.5vw;
 }
 
 .sidebar__profileInfo {

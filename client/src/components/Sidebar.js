@@ -33,7 +33,7 @@ function Sidebar() {
     }
         );   
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [channels]);
+  }, [setChannels]);
   const useStyles = makeStyles(() => ({
     action: {
       backgroundColor: '#fff',

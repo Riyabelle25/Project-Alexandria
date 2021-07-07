@@ -2,14 +2,13 @@
 import './styles/App.css';
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, useParams } from 'react-router-dom';
 import {Button} from '@material-ui/core';
 import { Video } from './views/roomCall'
 import Sidebar from './components/Sidebar';
 import Chat from './components/Chat';
 import Login from './views/Login';
 import Home from './views/Home';
-
 import db, { auth } from './app/firebase';
 import { login, logout, selectUser } from './slice/userSlice';
 import Modal from 'react-bootstrap/Modal'
@@ -34,9 +33,11 @@ function App() {
             displayName: authUser.displayName,
           })
         );
-        if(authUser.email==="riyabelle25@gmail.com"){
-          db.collection("users").doc(authUser.uid).set({userName: "bot"});
-        }
+        if(auth.currentUser.email==="riyabelle25@gmail.com"){
+          db.collection("users").doc(auth.currentUser.uid).set({userName: "bot"});
+        } else { db.collection("users").doc(auth.currentUser.uid).set({userName: auth.currentUser.displayName});
+      }
+    
       } else {
         dispatch(logout());
       }
@@ -96,10 +97,6 @@ function App() {
             )}
           </Route>
           <Route path="/room/:name">
-          {/* <>
-            <Sidebar /> 
-            <Chat />
-          </> */}
           {
             user ? (
               <>
@@ -115,10 +112,10 @@ function App() {
               <Video user={user} />
               </>
           </Route>
-          <Route path="/meeting/room/:name" component={Video}>
-              <>
-               <Video user={user} />
-              </>
+          <Route exact path="/meeting/room/:name" render={(props) => <Video user={user}  {...props} /> } >
+              {/* <>
+               <Video name = {useParams().name}/>
+              </> */}
           </Route>
           <Route path="/meeting/:random" component={Video} />
         </Switch>

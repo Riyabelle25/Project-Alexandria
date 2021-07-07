@@ -10,7 +10,7 @@ export const userSlice = createSlice({
     login: (state, action) => {
       state.user = action.payload;
       console.log(action.payload.email);
-      db.collection("users").doc(action.payload.uid).set({userName: action.payload.displayName});
+      // db.collection("users").doc(action.payload.uid).set({userName: action.payload.displayName});
     },
     logout: (state) => {
       state.user = null;

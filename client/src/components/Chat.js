@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import {
-  SendRounded,
-} from '@material-ui/icons';
+import {SendRounded} from '@material-ui/icons';
 import firebase from 'firebase';
 import '../styles/Chat.css';
-
+import Box from '@material-ui/core/Box';
 import Header from './Header';
 import Message from './Message';
 
@@ -20,6 +18,7 @@ function Chat() {
   const channelName = useSelector(selectChannelName);
   const [messageInput, setMessageInput] = useState('');
   const [messages, setMessages] = useState([]);
+  // const [meetingMsgs, setMeetingMsgs] = useState([]);
   const roomName = useParams().name;
 
   useEffect(() => {
@@ -29,7 +28,14 @@ function Chat() {
         .collection('messages')
         .orderBy('timestamp', 'asc')
         .onSnapshot((snapshot) => {
-          setMessages(snapshot.docs.map((doc) => doc.data()));
+          // setMeetingMsgs(
+          //   snapshot.docs.map(
+          //     (doc) => doc.data().messages ? doc.data() : null)
+          // )
+          setMessages(
+            snapshot.docs.map(
+              (doc) => doc.data())
+            );
         });
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -46,17 +52,37 @@ function Chat() {
   };
 
   return (
+    
     <div className="chat">
       <Header channelName={channelName} home={false} />
       <div className="chat__messages">
-        {messages.map((message, index) => (
-          <Message
+        {
+        messages.map((message, index) =>(
+          message ? 
+          message.message ? 
+          (<Message
             key={index}
             message={message.message}
-            timestamp={message.timestamp}
+            timestamp={message.timestamp}            
             user={message.user}
-          />
+          >{console.log(message.message)}</Message> ) 
+          : 
+          <div className="meeting__messages">
+            <h5 style={{color:"rgb(196, 181, 211)", fontSize:"1.5vw"}}>Meeting logs from {new Date(message.timestamp.toDate()).toLocaleString()}:</h5>
+           <Box className={"meeting__box"} > 
+                  {/* <h3> Meeting at {message.timestamp} </h3>  */}
+                  { message.messages.length>0 ? message.messages.map((item, index)  => (
+                  item ?
+                  <div key={index} style={{textAlign: "left"}}>
+                    {console.log("msg:", item.data)}
+                    <p style={{ wordBreak: "break-all" }}><b>{item.sender}</b>: {item.data}</p>
+                  </div> : null
+                )) : (<h6>No messages exchanged yet</h6>)
+                }
+                </Box> </div>
+           : (null)
         ))}
+
       </div>
       <div className="chat__input" >
         <form>

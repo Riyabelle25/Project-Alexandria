@@ -5,14 +5,52 @@
   background-color: rgb(13, 1, 27);
   height: 100vh;
 }
+.meeting__messages{
+  background-color: #130527;
+  padding:1vw;
+  margin:2vw;
+  border-radius: 1vw;
+  border:3px solid rgb(22, 2, 43);
 
+}
+.meeting__box{
+  background-color: rgb(144, 131, 156);
+  padding:1vw;
+  border-radius: 1vw;
+  height:18vh;
+  border:1px solid rgb(13, 1, 27);
+  color:rgb(13, 1, 27);
+  overflow-y: scroll;
+  flex: 1;
+
+}
+
+/* width */
+.meeting__box::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+.meeting__box::-webkit-scrollbar-track {
+  background: rgb(13, 1, 27);
+}
+
+/* Handle */
+.meeting__box::-webkit-scrollbar-thumb {
+  background: rgb(104, 89, 117);
+}
+
+/* Handle on hover */
+.meeting__box::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
 .chat__messages {
   overflow-y: scroll;
   flex: 1;
 }
   /* width */
   .chat__messages::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
     height: 75vh;
   }
   
@@ -23,12 +61,12 @@
   
   /* Handle */
   .chat__messages::-webkit-scrollbar-thumb {
-    background: rgb(48, 41, 54);
+    background: rgb(118, 94, 138);
   }
   
   /* Handle on hover */
   .chat__messages::-webkit-scrollbar-thumb:hover {
-    background: #555;
+    background: rgb(113, 88, 136);
   }
 .chat__input {
   display: flex;
@@ -36,7 +74,7 @@
   align-items: center;
   padding: 15px;
   color: rgb(173, 187, 181);
-  border-radius: 5px;
+  border-radius: 1vw;
   margin: 20px;
   border-top: 1px solid rgb(48, 41, 54);
   background-color: rgb(48, 41, 54);

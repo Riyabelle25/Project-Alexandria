@@ -28,7 +28,7 @@ const ENDPOINT = "http://localhost:8080";
       }).catch((error) => {
         console.log("Error getting users", error);
       });
-    }, [users]);
+    }, [setUsers]);
     console.log(users);
    
     useEffect(() => {
@@ -45,7 +45,7 @@ const ENDPOINT = "http://localhost:8080";
           ).catch((error) => {
         console.log("Error getting documents: ", error);
     });
-    }, [rooms]);
+    }, [setRooms]);
     console.log(rooms);
 
     const handleAddRoom = () => {

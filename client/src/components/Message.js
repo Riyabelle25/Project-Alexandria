@@ -8,7 +8,7 @@ import { Column, Row, Item } from '@mui-treasury/components/flex';
 function Message({ message, timestamp, user }) {
   var side="left";
   var marginR="0";
-  var marginL="60px";
+  var marginL="1vw";
   var justify="start";
   var name= user.displayName;
   console.log(user, auth.currentUser);
@@ -16,16 +16,16 @@ function Message({ message, timestamp, user }) {
     name="";
     side="right";
     justify="flex-end";
-    marginR="60px";
+    marginR="0.3vw";
     marginL="0px";
   }
   return (
-    <Row className="message" justifyContent={justify} marginRight={marginR} gap={3} marginLeft={marginL}>      
+    <Row className="message" alignItems={"center"} justifyContent={justify} marginRight={marginR} gap={3} marginLeft={marginL}>      
       <div className="message__info">
         <Row id="user" justifyContent={justify} marginRight={marginR} gap={1}>
           <text>{name}</text>
-          <span className="message__timestamp">
-            {new Date(timestamp?.toDate()).toUTCString()}
+          <span className="message__timestamp" style={{paddingTop:"0.3vw"}}> 
+            {new Date(timestamp?.toDate()).toLocaleString()}
           </span>
         </Row>
         <ChatMsg style={{minWidth:25}}

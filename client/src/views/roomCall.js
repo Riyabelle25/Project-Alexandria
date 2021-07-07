@@ -1,7 +1,7 @@
 /* eslint-disable no-loop-func */
 import React, { Component } from 'react'
 import faker from "faker"
-import { auth } from '../app/firebase';
+import db, { auth,firebase } from '../app/firebase';
 import {IconButton, Badge, Input, Button} from '@material-ui/core'
 import VideocamIcon from '@material-ui/icons/Videocam'
 import VideocamOffIcon from '@material-ui/icons/VideocamOff'
@@ -19,6 +19,8 @@ import { Row } from 'reactstrap'
 import Modal from 'react-bootstrap/Modal'
 import 'bootstrap/dist/css/bootstrap.css'
 import "../styles/Video.css"
+import Chat from '../components/Chat';
+import Sidebar from '../components/Sidebar';
 const io = require("socket.io-client");
 const server_url = "http://localhost:8080" 
 // http://localhost:8080 
@@ -43,6 +45,7 @@ var elms = 0;
 var userName = faker.internet.userName();
 
 export class Video extends Component {
+	
 	constructor(props) {
 		super(props)
 
@@ -54,6 +57,7 @@ export class Video extends Component {
 		if(props.user!=null){
 			userName=auth.currentUser.displayName
 		}
+		// this.roomName = this.props.match.name
 
 		this.state = {
 			video: false,
@@ -66,11 +70,13 @@ export class Video extends Component {
 			newmessages: 0,
 			askForUsername: true,
 			username: userName,
+			roomName: this.props.match.name,
 		}
 		connections = {}
 
 		this.getPermissions()
 	}
+	
 
 	getPermissions = async () => {
 		try{
@@ -400,11 +406,27 @@ export class Video extends Component {
 	handleScreen = () => this.setState({ screen: !this.state.screen }, () => this.getDislayMedia())
 
 	handleEndCall = () => {
+		let str = window.location.href;
+			const arr = str.split("/");
+			console.log(arr[arr.length-1])
+		
 		try {
+			let str = window.location.href;
+			const arr = str.split("/");
+			console.log(arr[arr.length-1])
+			if (this.state.messages.length>0){
+			db.collection("rooms").doc(arr[arr.length-1]).collection('channels').doc("general").collection('messages').add({
+				timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+				messages: this.state.messages,
+			  });			
+			}
+			this.setState({messages: []})
 			let tracks = this.localVideoref.current.srcObject.getTracks()
 			tracks.forEach(track => track.stop())
+			
+
 		} catch (e) {}
-		window.location.href = "/"
+		window.location.href = `/room/${arr[arr.length-1]}`;
 	}
 
 	openChat = () => this.setState({ showModal: true, newmessages: 0 })
@@ -529,7 +551,7 @@ export class Video extends Component {
 							</Modal.Body>
 							<Modal.Footer className="div-send-msg">
 								<Input placeholder="Message" value={this.state.message} onChange={e => this.handleMessage(e)} />
-								<Button variant="contained" color="primary" onClick={this.sendMessage}>Send</Button>
+								<Button variant="contained" color="primary" onClick={this.sendMessage} type="submit">Send</Button>
 							</Modal.Footer>
 						</Modal>
 

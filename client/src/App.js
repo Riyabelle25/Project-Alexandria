@@ -13,7 +13,7 @@ import db, { auth } from './app/firebase';
 import { login, logout, selectUser } from './slice/userSlice';
 import Modal from 'react-bootstrap/Modal'
 import socketIOClient from "socket.io-client";
-const ENDPOINT = "http://localhost:8080";
+const ENDPOINT = "https://alexandria-server.azurewebsites.net";
 
 
 

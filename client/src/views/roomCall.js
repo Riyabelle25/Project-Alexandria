@@ -22,7 +22,7 @@ import "../styles/Video.css"
 import Chat from '../components/Chat';
 import Sidebar from '../components/Sidebar';
 const io = require("socket.io-client");
-const server_url = "http://localhost:8080" 
+const server_url = "https://alexandria-server.azurewebsites.net" 
 // http://localhost:8080 
 // https://alexandria-server.azurewebsites.net
 

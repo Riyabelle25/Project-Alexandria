@@ -9,7 +9,7 @@ import '../styles/Home.css'
 import Header from '../components/Header';
 import socketIOClient from "socket.io-client";
 
-const ENDPOINT = "http://localhost:8080";
+const ENDPOINT = "https://alexandria-server.azurewebsites.net";
 
  export const Home = function(){
    const [rooms, setRooms] = useState([]);

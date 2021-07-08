@@ -17,12 +17,14 @@ color: white;
   pointer-events: none;
 }
 
-/* @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-bounce 4s ease 0s infinite;
-   
-  }
-} */
+.loader{
+  height: 100vh; /* Magic here */
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
 
 .App-header {
   background-color: rgb(13, 1, 27);
@@ -40,8 +42,3 @@ color: white;
   color: #61dafb;
 }
 
-/* @keyframes App-logo-bounce {
-  0%   { transform: translateY(0); }
-        50%  { transform: translateY(50px); }
-        100% { transform: translateY(0); }
-} */

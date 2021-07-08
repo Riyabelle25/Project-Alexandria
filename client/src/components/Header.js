@@ -5,7 +5,6 @@ import '../styles/Header.css';
 import { useParams } from 'react-router-dom';
 import { Avatar } from '@material-ui/core';
 import {VideoCall} from '@material-ui/icons';
-import Modal from 'react-bootstrap/Modal'
 function ChatHeader({ channelName="", home, user="", messages=[""] }) {
 
   const roomName = useParams().name;
@@ -22,29 +21,6 @@ function ChatHeader({ channelName="", home, user="", messages=[""] }) {
             <span className="chatHeader__hash">#</span>
               {channelName}
             </h3>
-            {/* <button onClick={()=>{              
-              <Modal isopen={!home} show={!home} style={{ zIndex: "999999" }}>
-							<Modal.Header>
-								<Modal.Title>Meeting Logs</Modal.Title>
-							</Modal.Header>
-							<Modal.Body style={{ overflow: "auto", overflowY: "auto", height: "400px", textAlign: "left" }} >
-                {console.log("messages",messages)}
-								{ 
-                messages!=null && messages.length > 0 ? messages.map((items, index) => (
-                items ? items.messages.map((item, index)  => (
-                  item ?
-                  <div key={index} style={{textAlign: "left"}}>
-                    {console.log("msg:", item.data)}
-                    <p style={{ wordBreak: "break-all" }}><b>{item.sender}</b>: {item.data}</p>
-                  </div> : null
-                )) : <p>No message yet</p> )): <p>No messages from a meeting logged yet</p>
-                }
-							</Modal.Body>
-              <Modal.Footer className="div-send-msg">
-								<h5>These are all</h5>
-							</Modal.Footer>
-						</Modal>
-        }}>Meeting Logs</button> */}
           </div>
           )}
           { home ? (

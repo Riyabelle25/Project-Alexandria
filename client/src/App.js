@@ -2,11 +2,12 @@
 import './styles/App.css';
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { BrowserRouter as Router, Switch, Route, useParams } from 'react-router-dom';
-import {Button} from '@material-ui/core';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import {Button, CircularProgress} from '@material-ui/core';
 import { Video } from './views/roomCall'
 import Sidebar from './components/Sidebar';
 import Chat from './components/Chat';
+import Dms from './components/Dms';
 import Login from './views/Login';
 import Home from './views/Home';
 import db, { auth } from './app/firebase';
@@ -33,6 +34,7 @@ function App() {
             displayName: authUser.displayName,
           })
         );
+
         if(auth.currentUser.email==="riyabelle25@gmail.com"){
           db.collection("users").doc(auth.currentUser.uid).set({userName: "bot"});
         } else { db.collection("users").doc(auth.currentUser.uid).set({userName: auth.currentUser.displayName});
@@ -46,6 +48,8 @@ function App() {
 
   const [response, setResponse] = useState('');
   const [showModal, setShowModal] =  useState(false);
+  
+
   const socket = socketIOClient(ENDPOINT,{secure: true});    
     socket.on("want-to-meet", (data) => {
 		console.log('want-to-meet says server', data.receiver.userID)
@@ -86,36 +90,31 @@ function App() {
       <Router>
         <Switch>
           <Route path="/" exact component={Login} >
+            {console.log(user)}
           { 
-          user ? 
-          (<>
-          <Home />
-          </>
-
+          user!=null ? user ?
+            ( <Home />
             ) : (
               <Login />
-            )}
+            ): <div className="loader "> <CircularProgress color="secondary" size={100} /> </div> 
+            }
           </Route>
           <Route path="/room/:name">
           {
-            user ? (
+            user!=null ? user ? (
               <>
                 <Sidebar /> 
                 <Chat />
               </>
             ) : (
                 <Login />
-            )}
+            ): <div className="loader"> <CircularProgress color="secondary" size={100} /> </div> 
+            }
           </Route>
-          <Route path="/meeting/home/:name">
-              <>
-              <Video user={user} />
-              </>
-          </Route>
-          <Route exact path="/meeting/room/:name" render={(props) => <Video user={user}  {...props} /> } >
-              {/* <>
-               <Video name = {useParams().name}/>
-              </> */}
+
+          <Route exact path="/meeting/room/:name" render={(props) => <Video {...props} /> } />
+          <Route path="/chat/:uid" >
+            <Dms />
           </Route>
           <Route path="/meeting/:random" component={Video} />
         </Switch>

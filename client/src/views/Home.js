@@ -1,19 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import db, { auth, firebase } from '../app/firebase';
 import RoomCard from '../components/RoomCard';
+import {Message} from '@material-ui/icons';
 import FeatureCard from '../components/FeatureCard';
 import { Row, Item } from '@mui-treasury/components/flex';
-
+import { makeStyles } from '@material-ui/core/styles';
+import IconButton from '@material-ui/core/IconButton';
 import { Button } from '@material-ui/core';
 import '../styles/Home.css'
 import Header from '../components/Header';
 import socketIOClient from "socket.io-client";
+import { useSizedIconButtonStyles } from '@mui-treasury/styles/iconButton/sized';
 
 const ENDPOINT = "https://alexandria-server.azurewebsites.net";
 
  export const Home = function(){
    const [rooms, setRooms] = useState([]);
    const [users, setUsers] = useState([]);
+   
    const socket = socketIOClient(ENDPOINT);
 
     useEffect(() => {
@@ -63,6 +67,30 @@ const ENDPOINT = "https://alexandria-server.azurewebsites.net";
     }
     const meet = `/meeting/home/${Math.floor(Math.random()* 33)*1000}`;
 
+    const iconBtnStyles = useSizedIconButtonStyles({ padding: 2 });
+    const useStyles = makeStyles(() => ({
+      action: {
+        backgroundColor: 'rgb(13, 1, 27)',
+        color: 'white',
+        boxShadow: '0 1px 6px 0 rgba(0,0,0,0.12)',
+        '&:hover': {
+          backgroundColor: 'green',
+          color: '#000',
+        },
+      },
+    }));
+    const styles = useStyles();
+
+    function ascii_to_hexa(str)
+      {
+      var arr1 = [];
+      for (var n = 0, l = str.length; n < l; n ++) 
+        {
+        var hex = Number(str.charCodeAt(n)).toString(16);
+        arr1.push(hex);
+      }
+      return parseInt(arr1.join(''), 16);
+      }
     return(
       <div className="home">
         <Header user={auth.currentUser} home={true} />
@@ -70,26 +98,40 @@ const ENDPOINT = "https://alexandria-server.azurewebsites.net";
           <div className="left__container" > 
           <h3 style={{color:"azure", paddingTop:"5%", fontWeight:"100"}}>Active Users</h3>
             {users!=null ? (
-              users.map((user) => (   
-               
+              users.map((user) => (    
+                              
                 <Row paddingTop={1} textAlign={"flex-start"} justifyContent={"flex-start"} style={{textAlign:"flex-start", justifyContent:"left"}}>
-                  <Item ><h5 style={{color:"rgb(196, 181, 211)", fontSize:"1.25vw"}}>{user.userName} </h5></Item>
-                  <Item marginLeft={4}>
-                  <Button 
-                    style={{color:"white", backgroundColor:"green"}}
-                    onClick={() => {
-                      socket.emit('want-to-meet',{
-                      sender:auth.currentUser,
-                      receiver:user, 
-                      meet: meet
-                    }, (response) => {
-                      console.log(response)
-                      console.log('ack')
-                    });
-                    console.log("user", user);
-                    window.location.href=meet;
-                  } 
-                  } > Connect </Button></Item>                      
+                  <Item >
+                    <h5 style={{color:"rgb(196, 181, 211)", fontSize:"1.25vw"}}>
+                    {user.userName}
+                     </h5></Item>
+                  <Item marginLeft={4} style={{justifyContent:"flex-end"}}>
+                    <Button 
+                      style={{color:"white", backgroundColor:"green"}}
+                      onClick={() => {
+                        socket.emit('want-to-meet',{
+                        sender:auth.currentUser,
+                        receiver:user, 
+                        meet: meet
+                      }, (response) => {
+                        console.log(response)
+                        console.log('ack')
+                      });
+                      console.log("user", user);
+                      window.location.href=meet;
+                    } 
+                    } > Call</Button>
+                    </Item>     
+                  <Item marginLeft={2} style={{justifyContent:"flex-end"}}>
+                    <IconButton className={styles.action} classes={iconBtnStyles}>
+                        <Message onClick={ () => {window.location.href=`/chat/${ascii_to_hexa(auth.currentUser.uid.slice(0,6))+ ascii_to_hexa(user.userID.slice(0,6))}`}} />
+                     </IconButton>
+                     {/* <Button 
+                      style={{color:"white", backgroundColor:"green"}}
+                      onClick={() => {window.location.href="/chat/"}}
+                      >Chat
+                      </Button> */}
+                  </Item>                 
                 </Row>                                                      
               ))) : (
                 // console.log("user", user) 
@@ -111,7 +153,7 @@ const ENDPOINT = "https://alexandria-server.azurewebsites.net";
           <div className="right__container">
             <div className="feature-container">
               <Row>
-                <div className="new-meeting">
+                {/* <div className="new-meeting">
                   <FeatureCard 
                       color={'#1976d2'}
                       title={'Create new Meeting'}
@@ -124,7 +166,7 @@ const ENDPOINT = "https://alexandria-server.azurewebsites.net";
                       toJoin= {"Start a Meeting"}
                       icon={true}
                       />
-                </div>
+                </div> */}
                 </Row>
                 <Row>
                 <div className="add-room">

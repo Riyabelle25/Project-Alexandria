@@ -9,7 +9,7 @@
 
 .sidebar__top {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   padding: 20px;
   background-color: rgb(13, 1, 27);  
@@ -69,6 +69,8 @@
   font-weight: 800;
 }
 #roomname{
+  padding-left: 1vw;
+  padding-top: 0.3vw;
   color:azure;
   font-size:2.5vw;
   font-weight: 500;
@@ -85,22 +87,6 @@
   flex: 1;
   flex-direction: column;
   padding: 12px;
-}
-
-.sidebar__voiceIcon {
-  color: #4fb185;
-}
-
-.sidebar__voiceInfo > h3 {
-  color: #4fb185;
-}
-
-.sidebar__voiceInfo > p {
-  font-size: smaller;
-}
-
-.sidebar__voiceIcons > .MuiSvgIcon-root, .sidebar__profileIcons > .MuiSvgIcon-root {
-  padding: 10px;
 }
 
 .sidebar__profileInfo > h3 {

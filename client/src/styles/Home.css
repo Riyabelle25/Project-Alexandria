@@ -39,7 +39,8 @@
     flex: 0.3;
     border-right: 2px solid rgb(48, 41, 54); 
     flex-direction: column;
-    align-items: center;
+    margin-left: 2vw;
+    align-items: left;
   }
   .rooms-container{  
     flex: 0.4;

@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import db from '../app/firebase';
 
 export const userSlice = createSlice({
   name: 'user',
@@ -9,11 +8,9 @@ export const userSlice = createSlice({
   reducers: {
     login: (state, action) => {
       state.user = action.payload;
-      console.log(action.payload.email);
-      // db.collection("users").doc(action.payload.uid).set({userName: action.payload.displayName});
     },
     logout: (state) => {
-      state.user = null;
+      state.user = false;
     },
   },
 });

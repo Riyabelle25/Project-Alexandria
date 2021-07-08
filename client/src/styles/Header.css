@@ -39,12 +39,9 @@ a:hover{
   }
 .chatHeader__right > .MuiSvgIcon-root {
   padding: 5px;
-  cursor: pointer;
 }
 
-.chatHeader__right > .MuiSvgIcon-root:hover {
-  color: #4fb185;
-}
+
 #signout{
   color: rgb(199, 184, 212);
   font-weight: 800;

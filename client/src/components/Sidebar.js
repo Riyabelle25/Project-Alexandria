@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { useSelector } from 'react-redux';
 import '../styles/Sidebar.css';
 import { Avatar } from '@material-ui/core';
-import {Add} from '@material-ui/icons';
+import {Add, Home} from '@material-ui/icons';
 import { Column, Row, Item } from '@mui-treasury/components/flex';
 import SidebarChannel from './SidebarChannel';
 import IconButton from '@material-ui/core/IconButton';
@@ -59,6 +59,9 @@ function Sidebar() {
   return (
     <div className="sidebar">
       <div className="sidebar__top">
+        <IconButton className={styles.action} classes={iconBtnStyles}>
+          <Home onClick={()=>{window.location.href="/"}} className="sidebar__addChannelIcon" />
+        </IconButton>
         <h3 id="roomname">{roomName}</h3>
       </div>
 

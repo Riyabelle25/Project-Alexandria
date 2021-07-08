@@ -53,11 +53,7 @@ export class Video extends Component {
 
 		this.videoAvailable = false
 		this.audioAvailable = false
-
-		if(props.user!=null){
-			userName=auth.currentUser.displayName
-		}
-		// this.roomName = this.props.match.name
+		this.userName = auth.currentUser.displayName
 
 		this.state = {
 			video: false,

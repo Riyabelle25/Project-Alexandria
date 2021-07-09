@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Video /> render() renders the component 1`] = `
+<Video
+  match={
+    Object {
+      "name": "BookClub",
+    }
+  }
+/>
+`;

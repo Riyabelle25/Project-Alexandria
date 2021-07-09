@@ -13,10 +13,14 @@ jobs:
       CI: false
     steps:
       - uses: actions/checkout@v2
-      - run: >-
-          cd server && npm install && cd ../client && npm install && npm run
+      - name: Setup the code
+        run: >-
+          cd client && npm install && npm run
           build
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+      - name: Test the code
+        run: npm test
+      - name: Deploy to Firebase
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_ALEXANDRIA_4DA0A }}'

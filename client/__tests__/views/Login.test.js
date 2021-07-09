@@ -1,4 +1,4 @@
-import App from "./App";
+import Login from "../../src/views/Login";
 import React from "react";
 import { shallow, configure } from "enzyme";
 import Adapter from "@wojtekmaj/enzyme-adapter-react-17";
@@ -9,7 +9,7 @@ import configureStore from "redux-mock-store"; // Smart components
 
 configure({ adapter: new Adapter() });
 
-describe("<App />", () => {
+describe("<Login />", () => {
   const initialState = { user: null };
   const mockStore = configureStore();
   let store;
@@ -18,7 +18,7 @@ describe("<App />", () => {
       store = mockStore(initialState);
       const wrapper = shallow(
         <Provider store={store}>
-          <App />
+          <Login />
         </Provider>
       );
       const component = wrapper.dive();

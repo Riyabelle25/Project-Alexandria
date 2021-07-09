@@ -40,7 +40,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest --transformIgnorePatterns \"node_modules/(?!alexandria-client/allow)/\" --env=jsdom",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -61,5 +61,35 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.14.7",
+    "@babel/preset-react": "^7.14.5",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.2",
+    "babel-jest": "^26.6.3",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "enzyme": "^3.11.0",
+    "enzyme-to-json": "^3.6.2",
+    "jest": "^26.6.0",
+    "react-test-renderer": "^17.0.2",
+    "redux-mock-store": "^1.5.4"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ],
+    "plugins": [
+      "transform-class-properties"
+    ]
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "../../__mocks__/fileMock.js",
+      "\\/(App.css)": "../__mocks__/styleMock.js",
+      "\\.(css|less|scss)$": "../../__mocks__/styleMock.js"
+    },
+    "setupFilesAfterEnv": ["<rootDir>__tests__/setup/setupEnzyme.js"],
+  "testPathIgnorePatterns": ["<rootDir>/__tests__/setup/"]
   }
 }

@@ -1,7 +1,7 @@
 .sidebar {
   display: flex;
   flex-direction: column;
-  flex: 0.20;
+  flex: 0.22;
   height: 100vh;
   background-color: rgb(13, 1, 27);  
   border-right: 1px solid gray;
@@ -9,7 +9,7 @@
 
 .sidebar__top {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   padding: 20px;
   background-color: rgb(13, 1, 27);  
@@ -60,7 +60,7 @@
   align-items: center;
   color: gray;
   background-color: rgb(13, 1, 27);  
-  padding: 16px;
+  padding: 14px;
   border-top: 1px solid rgb(48, 41, 54);
 }
 #username{
@@ -69,8 +69,10 @@
   font-weight: 800;
 }
 #roomname{
+  padding-left: 1vw;
+  padding-top: 0.3vw;
   color:azure;
-  font-size:xx-large;
+  font-size:2.5vw;
   font-weight: 500;
 }
 #channel{
@@ -78,6 +80,7 @@
   font-size: 26px;
   font-weight: 400;
   padding-left: 10%;
+  font-size: 1.5vw;
 }
 
 .sidebar__profileInfo {
@@ -86,33 +89,18 @@
   padding: 12px;
 }
 
-.sidebar__voiceIcon {
-  color: #4fb185;
-}
-
-.sidebar__voiceInfo > h3 {
-  color: #4fb185;
-}
-
-.sidebar__voiceInfo > p {
-  font-size: smaller;
-}
-
-.sidebar__voiceIcons > .MuiSvgIcon-root, .sidebar__profileIcons > .MuiSvgIcon-root {
-  padding: 10px;
-}
-
 .sidebar__profileInfo > h3 {
   color: white;
 }
 #signout{
+  font-size: 1vw;
   color: rgb(206, 48, 56);
   font-weight: 800;
   padding-top: 3%;
   background-color: rgb(68, 53, 80);
   border-radius: 2rem;
-  padding-left: -3%;
-  padding-right: 5%;
+  /* padding-left: -3%; */
+  /* padding-right: 1%; */
   margin-left: 3%;
 }
 #signout:hover{
@@ -122,7 +110,7 @@
   transform: translateY(-2px);
   background-color: rgb(68, 53, 80);
   border-radius: 2rem;
-  padding-left: -3%;
-  padding-right: 5%;
+  /* padding-left: -3%;
+  padding-right: 5%; */
   padding-top: 3%;
 }

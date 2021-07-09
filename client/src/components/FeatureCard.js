@@ -1,14 +1,10 @@
 import React from 'react';
-import { Add, VideoCall, LaptopChromebook } from '@material-ui/icons';
+import {VideoCall, LaptopChromebook } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/core/styles';
-import Avatar from '@material-ui/core/Avatar';
-import AvatarGroup from '@material-ui/lab/AvatarGroup';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 // import Grid from '@material-ui/core/Grid';
 import { Column, Row, Item } from '@mui-treasury/components/flex';
-import { Info, InfoSubtitle, InfoTitle } from '@mui-treasury/components/info';
-import { useApexInfoStyles } from '@mui-treasury/styles/info/apex';
 import { useGraphicBtnStyles } from '@mui-treasury/styles/button/graphic';
 import { useSizedIconButtonStyles } from '@mui-treasury/styles/iconButton/sized';
 
@@ -117,7 +113,7 @@ const CustomCard = ({
           px={2}
           marginRight={8}
           color={'rgb(48, 41, 54)'}
-          fontSize={'120%'}
+          fontSize={'1vw'}
           fontFamily={'Ubuntu'}
         >
           {description}

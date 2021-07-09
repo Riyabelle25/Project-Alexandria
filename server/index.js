@@ -38,6 +38,13 @@ messages = {}
 timeOnline = {}
 
 io.on('connection', (socket) => {
+	console.log('new client connected');
+	socket.on('want-to-meet', (data, ack) => {
+		console.log('want-to-meet', data)
+		ack('woot')
+		io.emit('want-to-meet', data);
+		console.log("emitted");
+	});
 
 	socket.on('join-call', (path) => {
 		if(connections[path] === undefined){

@@ -26,6 +26,7 @@
   width: 40vmin;
   pointer-events: none;
   padding: 5%;
+  margin-left: 3%;
 }
 #login-btn:hover{
   transform: translateY(-5px);
@@ -35,6 +36,7 @@
 
 }
 #video-call{
+  font-size: 1vw;
   margin-left: 7%;
 }
 #video-call:hover{
@@ -44,28 +46,25 @@
   box-shadow: -3px 3px 36px 0 rgb(214, 212, 212);
 }
 #welcome-msg{
+  opacity: 0.8;
   color: rgb(49, 7, 83);
   font-family:'Lucida Grande';
   font-weight: 500;
 }
 @media (prefers-reduced-motion: no-preference) {
 .App-logo {
-    animation: App-logo-bounce 4s ease 0s infinite;
-   
+    animation: App-logo-bounce 4s ease 0s infinite;   
   }  
-  
-  #paper{
-    animation: paper-bounce 4s ease 0s infinite;
-  }
 }
+
  @keyframes App-logo-bounce {
   0%   { transform: translateY(0); }
         50%  { transform: translateY(50px); }
         100% { transform: translateY(0); }
 } 
-
+/* 
 @keyframes paper-bounce {
   0%   { transform: translateY(0); }
         50%  { transform: translateY(50px); }
         100% { transform: translateY(0); }
-}
+} */

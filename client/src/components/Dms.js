@@ -9,23 +9,19 @@ import Message from './Message';
 
 import db from '../app/firebase';
 import { selectUser } from '../slice/userSlice';
-import { selectChannelId, selectChannelName } from '../slice/appSlice';
 import { useParams } from 'react-router-dom';
 
-function Chat() {
+function Dms() {
   const user = useSelector(selectUser);
-  const channelId = useSelector(selectChannelId);
-  const channelName = useSelector(selectChannelName);
   const [messageInput, setMessageInput] = useState('');
   const [messages, setMessages] = useState([]);
+
   // const [meetingMsgs, setMeetingMsgs] = useState([]);
-  const roomName = useParams().name;
+  const pairID = useParams().name;
 
 
   useEffect(() => {
-    if (channelId) {
-      db.collection("rooms").doc(roomName).collection('channels')
-        .doc(channelId)
+      db.collection("dms").doc(pairID)
         .collection('messages')
         .orderBy('timestamp', 'asc')
         .onSnapshot((snapshot) => {
@@ -34,13 +30,12 @@ function Chat() {
               (doc) => doc.data())
             );
         });
-    }
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [channelId]);
+  }, [setMessages]);
 
   const sendMessage = (e) => {
     e.preventDefault();
-    db.collection("rooms").doc(roomName).collection('channels').doc(channelId).collection('messages').add({
+    db.collection("dms").doc(pairID).collection('messages').add({
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
       message: messageInput,
       user,
@@ -50,8 +45,8 @@ function Chat() {
 
   return (
     
-    <div className="chat">
-      <Header channelName={channelName} home={false} />
+    <div className="chat" style={{flex:"1"}}>
+      <Header channelName={"Direct Message"} home={false} dm={true} />
       <div className="chat__messages">
         {
         messages.map((message, index) =>(
@@ -67,7 +62,6 @@ function Chat() {
           <div className="meeting__messages">
             <h5 style={{color:"rgb(196, 181, 211)", fontSize:"1.5vw"}}>Meeting logs from {new Date(message.timestamp.toDate()).toLocaleString()}:</h5>
            <Box className={"meeting__box"} > 
-                  {/* <h3> Meeting at {message.timestamp} </h3>  */}
                   { message.messages.length>0 ? message.messages.map((item, index)  => (
                   item ?
                   <div key={index} style={{textAlign: "left"}}>
@@ -84,13 +78,8 @@ function Chat() {
       <div className="chat__input" >
         <form>
           <input
-            disabled={!channelId}
             onChange={(e) => setMessageInput(e.target.value)}
-            placeholder={
-              channelName
-                ? `Message #${channelName}`
-                : 'Please select a channel first!'
-            }
+            placeholder={`Message`}
             type="text"
             value={messageInput}
             style={{color:"white"}}
@@ -109,4 +98,4 @@ function Chat() {
   );
 }
 
-export default Chat;
+export default Dms;

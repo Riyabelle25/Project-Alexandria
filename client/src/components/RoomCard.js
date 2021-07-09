@@ -51,7 +51,7 @@ const useStyles = makeStyles(() => ({
     backgroundColor: 'rgba(0,0,0,0.08)',
     transition: '0.4s',
     width: "36vw",
-    height: "27vh",
+    height: "15vh",
   },
   logo: {
     width: "70px",
@@ -102,35 +102,11 @@ const CustomCard = ({
   return (
     <div className={styles.root}>
       <Column className={styles.card}>
-        <Row p={3} px={5}>
-          {/* <Avatar className={styles.logo} variant={'rounded'} src={thumbnail} /> */}
+        <Row p={4} px={7} justifyContent={"space-between"} alignContent={"center"}>
           <Info position={'middle'} useStyles={useApexInfoStyles} style={{paddingLeft:"10px"}}>
-            <InfoTitle style={{fontSize:"140%", fontWeight:"100",color:"azure", marginLeft:-1}}>{title}</InfoTitle>
-            <InfoSubtitle style={{fontSize:"80%", fontWeight:"400",color:"grey", marginLeft:-1}}>{subtitle}</InfoSubtitle>
+            <InfoTitle style={{fontSize:"1.5vw", fontWeight:"100",color:"azure", marginLeft:-1}}>{title}</InfoTitle>          
           </Info>
-        </Row>
-        <Box
-          px={6}
-          color={'grey.600'}
-          fontSize={'100%'}
-          fontFamily={'Ubuntu'}
-        >
-          {description}
-        </Box>
-        <Row p={1} justifyContent={"flex-end"}>
-          {/* <Item>
-            <AvatarGroup max={4} classes={{ avatar: styles.avatar }}>
-              {new Array(5).fill(0).map((_, index) => (
-                <Avatar
-                  key={index}
-                  src={`https://i.pravatar.cc/300?img=${Math.floor(
-                    Math.random() * 30
-                  )}`}
-                />
-              ))}
-            </AvatarGroup>
-          </Item> */}
-          <Item alignContent={"flex-end"} paddingRight={"2%"}>
+          <Item alignContent={"flex-end"}>
           <Button
            className={styles.join}
            classes={btnStyles}
@@ -138,13 +114,10 @@ const CustomCard = ({
            color={'success'}
            disableRipple
            onClick={event=>window.location.href=`/room/${title}`}
-         > Enter
-         {/* <a href={`/room/$`}>
-          
-         </a> */}
+          > Enter
          </Button>
-          </Item>
-        </Row>
+        </Item>
+      </Row>
       </Column>
     </div>
   );

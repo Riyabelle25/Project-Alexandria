@@ -5,9 +5,17 @@ import '../styles/Header.css';
 import { useParams } from 'react-router-dom';
 import { Avatar } from '@material-ui/core';
 import {VideoCall} from '@material-ui/icons';
-function ChatHeader({ channelName="", home, user="", messages=[""] }) {
+function ChatHeader({ channelName="", home, user="", messages=[""] , dm=false}) {
 
   const roomName = useParams().name;
+  let meet = null
+
+  if (dm){
+    meet= `/meeting/chat/${roomName}`
+  } else {
+    meet = `/meeting/room/${roomName}`
+  }
+  
 
   return (
     <div className="chatHeader">
@@ -45,7 +53,7 @@ function ChatHeader({ channelName="", home, user="", messages=[""] }) {
             ):(
               <div className="chatHeader__right" style={{justifyContent:"flex-end", marginRight:"6%"}}>
               <VideoCall style={{width:80,height:60}}/>
-              <a href={`/meeting/room/${roomName}`} style={{fontSize: 28, paddingLeft:"3px", paddingBottom:"8px"}}>Start a Meeting</a>
+              <a href= {`${meet}`} style={{fontSize: 28, paddingLeft:"3px", paddingBottom:"8px"}}>Start a Meeting</a>
            </div>              
            )}
     </div>

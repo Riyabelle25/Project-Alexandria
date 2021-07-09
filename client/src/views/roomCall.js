@@ -19,8 +19,6 @@ import { Row } from 'reactstrap'
 import Modal from 'react-bootstrap/Modal'
 import 'bootstrap/dist/css/bootstrap.css'
 import "../styles/Video.css"
-import Chat from '../components/Chat';
-import Sidebar from '../components/Sidebar';
 const io = require("socket.io-client");
 const server_url = "https://alexandria-server.azurewebsites.net" 
 // http://localhost:8080 
@@ -32,11 +30,12 @@ const peerConnectionConfig = {
 		// {urls:['stun:stun.schlund.de','stun:stun.l.google.com:19302', 'stun:stun1.l.google.com:19302',
 		// 'stun:stun2.l.google.com:19302','stun:stun3.l.google.com:19302',
 		// 'stun:stun4.l.google.com:19302']},
+		{urls: ['stun:stun01.sipphone.com', 'stun:stun.ekiga.net','stun:stun.fwdnet.net']},
 
-		{	urls: 'turn:numb.viagenie.ca',
-			credential: 'muazkh',
-			username: 'webrtc@live.com'
-		},
+		// {	urls: 'turn:numb.viagenie.ca',
+		// 	credential: 'muazkh',
+		// 	username: 'webrtc@live.com'
+		// },
 	]
 }
 var socket = null;
@@ -53,7 +52,6 @@ export class Video extends Component {
 
 		this.videoAvailable = false
 		this.audioAvailable = false
-		this.userName = auth.currentUser.displayName
 
 		this.state = {
 			video: false,
@@ -404,25 +402,40 @@ export class Video extends Component {
 	handleEndCall = () => {
 		let str = window.location.href;
 			const arr = str.split("/");
-			console.log(arr[arr.length-1])
+			console.log(arr[arr.length-2])
 		
 		try {
 			let str = window.location.href;
 			const arr = str.split("/");
-			console.log(arr[arr.length-1])
-			if (this.state.messages.length>0){
-			db.collection("rooms").doc(arr[arr.length-1]).collection('channels').doc("general").collection('messages').add({
-				timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-				messages: this.state.messages,
-			  });			
+			console.log(arr[arr.length-2])
+			if (arr[arr.length-2]==="room"){
+				if (this.state.messages.length>0){
+					db.collection("rooms").doc(arr[arr.length-1]).collection('channels').doc("general").collection('messages').add({
+						timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+						messages: this.state.messages,
+					  });			
+					}
+
+			} else {
+				db.collection("dms").doc(arr[arr.length-1]).collection('messages').add({
+					timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+					messages: this.state.messages,
+				  });	
+
 			}
+			
 			this.setState({messages: []})
 			let tracks = this.localVideoref.current.srcObject.getTracks()
 			tracks.forEach(track => track.stop())
 			
 
 		} catch (e) {}
-		window.location.href = `/room/${arr[arr.length-1]}`;
+		if(arr[arr.length-2]==="room"){
+			window.location.href = `/room/${arr[arr.length-1]}`;
+		} else {
+			window.location.href = `/chat/${arr[arr.length-1]}`;
+		}
+		
 	}
 
 	openChat = () => this.setState({ showModal: true, newmessages: 0 })

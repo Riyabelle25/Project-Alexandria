@@ -17,7 +17,7 @@ function Dms() {
   const [messages, setMessages] = useState([]);
 
   // const [meetingMsgs, setMeetingMsgs] = useState([]);
-  const pairID = useParams().uid;
+  const pairID = useParams().name;
 
 
   useEffect(() => {
@@ -46,7 +46,7 @@ function Dms() {
   return (
     
     <div className="chat" style={{flex:"1"}}>
-      <Header channelName={"Direct Message"} home={false} />
+      <Header channelName={"Direct Message"} home={false} dm={true} />
       <div className="chat__messages">
         {
         messages.map((message, index) =>(

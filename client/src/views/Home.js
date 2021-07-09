@@ -65,7 +65,6 @@ const ENDPOINT = "https://alexandria-server.azurewebsites.net";
           {channelName: "general"}
           );}; 
     }
-    const meet = `/meeting/home/${Math.floor(Math.random()* 33)*1000}`;
 
     const iconBtnStyles = useSizedIconButtonStyles({ padding: 2 });
     const useStyles = makeStyles(() => ({
@@ -112,13 +111,13 @@ const ENDPOINT = "https://alexandria-server.azurewebsites.net";
                         socket.emit('want-to-meet',{
                         sender:auth.currentUser,
                         receiver:user, 
-                        meet: meet
+                        meet: `/meeting/chat/${ascii_to_hexa(auth.currentUser.uid.slice(0,6))+ ascii_to_hexa(user.userID.slice(0,6))}`
                       }, (response) => {
                         console.log(response)
                         console.log('ack')
                       });
                       console.log("user", user);
-                      window.location.href=meet;
+                      window.location.href=`/meeting/chat/${ascii_to_hexa(auth.currentUser.uid.slice(0,6))+ ascii_to_hexa(user.userID.slice(0,6))}`;
                     } 
                     } > Call</Button>
                     </Item>     

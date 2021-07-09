@@ -113,10 +113,14 @@ function App() {
           </Route>
 
           <Route exact path="/meeting/room/:name" render={(props) => <Video {...props} /> } />
-          <Route path="/chat/:uid" >
-            <Dms />
+          <Route exact path="/meeting/chat/:name" render={(props) => <Video {...props} /> } />
+          <Route path="/chat/:name" >
+            { user!=null ? user ? (
+              <Dms /> ): (<Login />
+              ): <div className="loader "> <CircularProgress color="secondary" size={100} /> </div> 
+              }         
           </Route>
-          <Route path="/meeting/:random" component={Video} />
+          <Route path="/:random" component={Video} />
         </Switch>
       </Router>
     </div>

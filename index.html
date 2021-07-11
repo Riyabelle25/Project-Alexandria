@@ -1,166 +1,282 @@
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="None">
-  
-  <link rel="canonical" href="https://example.com/">
-  <link rel="shortcut icon" href="img/favicon.ico">
-  <title>Documentation for Alexandria</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="None">
+        
+        <link rel="canonical" href="https://example.com/">
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <title>Alexandria Docs</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
 
-  <link rel="stylesheet" href="css/theme.css" />
-  <link rel="stylesheet" href="css/theme_extra.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "Home";
-    var mkdocs_page_input_path = "index.md";
-    var mkdocs_page_url = "/";
-  </script>
-  
-  <script src="js/jquery-2.1.1.min.js" defer></script>
-  <script src="js/modernizr-2.8.3.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
-</head>
+        <script src="js/jquery-1.10.2.min.js" defer></script>
+        <script src="js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
 
-<body class="wy-body-for-nav" role="document">
+    <body class="homepage">
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href=".">Alexandria Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-  <div class="wy-grid-for-nav">
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="login/" class="nav-link">Login</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="home/" class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="call/" class="nav-link">Call</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="dm/" class="nav-link">Direct Message (DM)</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="rooms/" class="nav-link">Rooms</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="meetings/" class="nav-link">Meetings</a>
+                            </li>
+                        </ul>
 
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-    <div class="wy-side-scroll">
-      <div class="wy-side-nav-search">
-        <a href="." class="icon icon-home"> Documentation for Alexandria</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
-  </form>
-</div>
-      </div>
-
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-                <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href=".">Home</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#commands">Commands</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#project-layout">Project layout</a>
-    </li>
-    </ul>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="about/">About</a>
-                    </li>
-                </ul>
-      </div>
-    </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href=".">Documentation for Alexandria</a>
-      </nav>
-
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href=".">Docs</a> &raquo;</li>
-    
-      
-    
-    <li>Home</li>
-    <li class="wy-breadcrumbs-aside">
-      
-    </li>
-  </ul>
-  
-  <hr/>
-</div>
-
-          <div role="main">
-            <div class="section">
-              
-                <h1 id="welcome-to-alexandria">Welcome to Alexandria</h1>
-<p>For full documentation visit <a href="https://www.mkdocs.org">mkdocs.org</a>.</p>
-<h2 id="commands">Commands</h2>
-<ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs -h</code> - Print help message and exit.</li>
-</ul>
-<h2 id="project-layout">Project layout</h2>
-<pre><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
-</code></pre>
-              
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="about/" class="btn btn-neutral float-right" title="About">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-    </div>
-  
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-    
-  </div>
-
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
-      
         </div>
-      </div>
 
-    </section>
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
 
-  </div>
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#_1" class="nav-link"></a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#_2" class="nav-link"></a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#welcome-to-alexandria" class="nav-link">Welcome to Alexandria!</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#tech-stack" class="nav-link">Tech Stack</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#functionalities-offered" class="nav-link">Functionalities offered</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#routing-within-app" class="nav-link">Routing within App:</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#code-quality" class="nav-link">Code Quality:</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#cicd-and-hosting" class="nav-link">CI/CD and Hosting:</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#testing" class="nav-link">Testing:</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#documentation" class="nav-link">Documentation:</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
 
-  <div class="rst-versions" role="note" aria-label="versions">
-  <span class="rst-current-version" data-toggle="rst-current-version">
-    
-    
-    
-      <span><a href="about/" style="color: #fcfcfc">Next &raquo;</a></span>
-    
-  </span>
+<h1 id="_1"></h1>
+<h1 id="_2"></h1>
+<h1 id="welcome-to-alexandria">Welcome to Alexandria!</h1>
+<p>To check out Alexandria visit <a href="https://www.mkdocs.org">here</a>.
+To check out the code visit <a href="https://www.github.riyabelle25/Project-Alexandria">GitHub</a></p>
+<p><img alt="Login screen" src="img/login.png" /></p>
+<!-- ![The Great Library of Alexandria](img/alexandria.svg) -->
+
+<p>Project Alexandria is my attempt at cloning the Microsoft Teams App as part of the <strong>Engage Mentorship Programme'21</strong>.</p>
+<p>The Great Library of Alexandria was one of the most significant libraries of the ancient world. It came to be regarded as the capital of learning and knowledge. Drawing inspiration from this, I visualised a <strong>collaborative virtual infrastructure</strong> where new spaces can be created for teams to meet and work.</p>
+<p><img src="img/alexandria.svg" alt="drawing" width="400" style={{marginLeft:12vw}}/></p>
+<p>Just as the Library of Alexandria was the hub for sharing of knowledge in the ancient times, I see platforms like Teams being the hub for collective working, growing and learning in these new times brought about by the Pandemic.</p>
+<h2 id="tech-stack">Tech Stack</h2>
+<p>Although familiar with <code>NodeJs</code> projects, this was my first time coding in JS- especially working with <code>React</code>😥.
+I learnt on the get-go, and spent- sometimes hours on end debugging! It was challenging but in a good way.</p>
+<p>Here's the tech stack involved for each of the functionalities:</p>
+<ul>
+<li>
+<p><strong>App Authentication</strong>: Firebase <strong>Authentication</strong> using Google Auth-Provider.</p>
+</li>
+<li>
+<p><strong>Video-Call Functionality's Back-End</strong>: Used <strong><code>Express</code></strong> framework to code the server-side where my Client pings during a video-call. Code can be found at <code>server\index.js</code> from repository.</p>
+</li>
+<li>
+<p><strong>Video-Call Functionality</strong>: Using <code>PeerJS</code> (wraps <code>WebRTC</code> ), <code>socket.io</code>\ <code>socket.io client</code>. Also using <code>STUN</code> servers to allow remote participation!</p>
+</li>
+<li>
+<p><strong>Client-side</strong>: <strong><code>React JS</code> for Alexandria's front-end. </strong> <code>Redux</code> for users' state management. Code can be found under <code>client\</code> from repository.</p>
+</li>
+<li>
+<p><strong>Database</strong>: <strong>Firestore database</strong> for storing data on the cloud- for eg. the rooms a user has joined, the chat messages, and user information.</p>
+</li>
+</ul>
+<h2 id="functionalities-offered">Functionalities offered</h2>
+<p>To know more about the functionalities themselves, navigate to their section:</p>
+<ul>
+<li>
+<p><a href="login/">Login</a>: In order to enter Alexandria, you need to sign-in with a Google account.</p>
+</li>
+<li>
+<p><a href="home/">Home</a>: You can see the list of users on your left and the list of joined Rooms in the center. To add more rooms, click on <code>Join Rooms</code></p>
+</li>
+<li>
+<p><a href="call/">Call</a>: To instantly connect with a friend, click on <code>connect</code> besides their name from the user list. This shall redirect you to a meeting, and send your friend a notification pop-up asking them to join you. Please note that your friend will have to be signed-in and on the app interface in order to recieve the pop-up!</p>
+</li>
+<li>
+<p><a href="dm/">Chat</a>: Chat feature is available throughout Alexandria. You can send a direct message to a friend from the Home, or chat with room-members from a particular Room.</p>
+</li>
+<li>
+<p><a href="rooms/">Rooms</a>: Each Room is modelled after a Team from the Microsoft Teams App. A Room is a virtual workspace made for team collaboration over a particular activity- be it a project, or a university course or even event management. Conversation can be maintained by creating <code>Channels</code> in a room, to keep discussions organised.</p>
+</li>
+<li>
+<p><a href="meetings/">Meetings</a>: Group Video Calls; this is also the minimum functionality to be coded in for the Engage Mentorship Programme. Asides from directly calling an online user and have a one-on-one video call; Meetings can also be started from a Room itself, after which the meeting link can be copied and shared to invite others.</p>
+</li>
+</ul>
+<h2 id="routing-within-app">Routing within App:</h2>
+<p><code>react-router-dom</code> has been used to route user to different features of Alexandria. Following are valid routes:</p>
+<h2 id="code-quality">Code Quality:</h2>
+<p><code>Prettier</code> and <code>Eslint</code> has been used to maintain code quality as well as linting checks.</p>
+<h2 id="cicd-and-hosting">CI/CD and Hosting:</h2>
+<ul>
+<li><strong>Deployment</strong> The Client is deployed on the Cloud using <strong>Firebase Hosting</strong> services- and my Server is deployed on <strong>Azure using Web App Services</strong>.
+  The <code>server_url</code> (the URL where Server is deployed on Azure) is used in the client-side of Video-Call functionality for socket.io to make and get requests.</li>
+<li><strong>CI/CD</strong> Project Alexandria is on <strong>GitHub</strong>. I use GitHub Actions for Firebase to run jobs for build deployments as well as linting checks.</li>
+</ul>
+<h2 id="testing">Testing:</h2>
+<p>React-testing libraries:
+<code>@testing-library/jest-dom</code>,
+<code>@testing-library/react</code>,
+<code>@testing-library/user-event</code>,
+<code>react-test-renderer</code>,<br />
+along with <code>redux-mock-store</code>,<code>Jest``Enzyme</code> has been used to write component tests.</p>
+<h2 id="documentation">Documentation:</h2>
+<p>Use mkdocs to build this documentation and serve it onto GitHub Project Pages.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = ".",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="js/base.js" defer></script>
+        <script src="search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
 </div>
-    <script>var base_url = '.';</script>
-    <script src="js/theme_extra.js" defer></script>
-    <script src="js/theme.js" defer></script>
-      <script src="search/main.js" defer></script>
-    <script defer>
-        window.onload = function () {
-            SphinxRtdTheme.Navigation.enable(true);
-        };
-    </script>
 
-</body>
+    </body>
 </html>
 
 <!--
 MkDocs version : 1.2.1
-Build Date UTC : 2021-07-09 21:07:21.056786+00:00
+Build Date UTC : 2021-07-11 10:00:51.147337+00:00
 -->

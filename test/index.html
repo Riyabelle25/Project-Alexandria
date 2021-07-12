@@ -6,9 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         
-        <link rel="canonical" href="https://example.com/meetings/">
+        <link rel="canonical" href="https://example.com/test/">
         <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>Meetings - Alexandria Docs</title>
+        <title>Test Minimum Functionality - Alexandria Docs</title>
         <link href="../css/bootstrap.min.css" rel="stylesheet">
         <link href="../css/font-awesome.min.css" rel="stylesheet">
         <link href="../css/base.css" rel="stylesheet">
@@ -33,8 +33,8 @@
                 <div id="navbar-collapse" class="navbar-collapse collapse">
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
-                            <li class="navitem">
-                                <a href="../test/" class="nav-link">Test Minimum Functionality</a>
+                            <li class="navitem active">
+                                <a href="./" class="nav-link">Test Minimum Functionality</a>
                             </li>
                             <li class="navitem">
                                 <a href="../login/" class="nav-link">Login</a>
@@ -51,8 +51,8 @@
                             <li class="navitem">
                                 <a href="../rooms/" class="nav-link">Rooms</a>
                             </li>
-                            <li class="navitem active">
-                                <a href="./" class="nav-link">Meetings</a>
+                            <li class="navitem">
+                                <a href="../meetings/" class="nav-link">Meetings</a>
                             </li>
                         </ul>
 
@@ -63,12 +63,12 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" href="../rooms/" class="nav-link">
+                                <a rel="prev" class="nav-link disabled">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" class="nav-link disabled">
+                                <a rel="next" href="../login/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -89,148 +89,12 @@
     
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
-            
-            <li class="nav-item" data-level="1"><a href="#start-a-meeting" class="nav-link">Start a Meeting</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#explore" class="nav-link">Explore</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#working" class="nav-link">Working</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#troubleshooting" class="nav-link">Troubleshooting</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
         </ul>
     </div>
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="start-a-meeting">Start a Meeting</h1>
-<p>One can start a meeting from any room, simply click on the hyperlink in the Header.
-You'll be redirected to the pre-meeting UI, prompting you to fill in your name afterwhich you're in!</p>
-<p><em>Remote participation is facilitated! (Ps: that's my friend holding up Oswald😁 in the second video stream)</em>
-<img alt="meeting" src="../img/meeting-remote.png" /></p>
-<h2 id="explore">Explore</h2>
-<ul>
-<li>
-<p>To have others join in, copy the <code>invite link</code> from the top and share (You can drop the link in the Room-Chat!)</p>
-</li>
-<li>
-<p>When a participant joins, it may take some seconds to see their video-stream.</p>
-</li>
-<li>
-<p>Just like any other Meeting functionality, features like <code>mute/unmute</code>, switch <code>video on/off</code> and <code>share the screen</code> are available.</p>
-</li>
-</ul>
-<p><em>Share screen</em>:
-  <img alt="meeting" src="../img/meeting-sharescreen.png" /></p>
-<ul>
-<li>There is an <code>inbuilt chat</code> functionality as well. The chats from a meeting are displayed as <code>Meeting Logs</code> in that particular Room's ChatBox after a meeting ends.</li>
-</ul>
-<p><em>Chat functionality</em>:
-  <img alt="meeting" src="../img/meeting-chat.png" /></p>
-<h2 id="working">Working</h2>
-<ul>
-<li>
-<p>Using <code>PeerJS</code> and <code>Socket.io</code> to write server-side code in <code>ExpressJS</code>:</p>
-<pre><code>const express = require("express");
-const app = express();
-app.use(express.json());
-var server = http.Server(app);
-var io = require("socket.io")(server, { secure: true, allowEIO3: true });
-const { ExpressPeerServer } = require("peer");
-
-const peerServer = ExpressPeerServer(server, {
-debug: true,
-});
-app.use("/peerjs", peerServer);
-socket.on("join-call", (path) =&gt; {
-    if (connections[path] === undefined) {
-    connections[path] = [];
-    }
-    connections[path].push(socket.id);
-
-    timeOnline[socket.id] = new Date();
-
-    for (let a = 0; a &lt; connections[path].length; ++a) {
-    io.to(connections[path][a]).emit(
-        "user-joined",
-        socket.id,
-        connections[path]
-    );
-    }
-
-    if (messages[path] !== undefined) {
-    for (let a = 0; a &lt; messages[path].length; ++a) {
-        io.to(socket.id).emit(
-        "chat-message",
-        messages[path][a]["data"],
-        messages[path][a]["sender"],
-        messages[path][a]["socket-id-sender"]
-        );
-    }
-}
-</code></pre>
-</li>
-<li>
-<p>In Client-side, <code>socket.io-client</code> handles requests.
-  A snippet from <code>/client/src/views/roomCall.js</code></p>
-<pre><code>      const io = require("socket.io-client");
-      const server_url = "https://alexandria-server.azurewebsites.net";
-
-      // when a new user joins call:
-      connectToSocketServer = () =&gt; {
-          console.log("want to connect");
-          socket = io.connect(server_url, {
-          secure: true,
-          });
-
-          socket.on("signal", this.gotMessageFromServer);
-
-          socket.on("connect", () =&gt; {
-          socket.emit("join-call", window.location.href);
-          socketId = socket.id;
-
-          socket.on("chat-message", this.addMessage);
-
-          socket.on("user-left", (id) =&gt; {
-              let video = document.querySelector(`[data-socket="${id}"]`);
-              if (video !== null) {
-              elms--;
-              video.parentNode.removeChild(video);
-
-              let main = document.getElementById("main");
-              this.changeCssVideos(main);
-              }
-          });
-</code></pre>
-</li>
-<li>
-<p>Remote Participation is configured in <code>PeerJS</code> with the help of <code>STUN</code> servers like so:</p>
-<pre><code>    const peerConnectionConfig = {
-        iceServers: [
-            {
-            urls: [
-                "stun:stun01.sipphone.com",
-                "stun:stun.ekiga.net",
-                "stun:stun.fwdnet.net",
-            ],
-            },
-        ],
-        };
-</code></pre>
-</li>
-</ul>
-<h2 id="troubleshooting">Troubleshooting</h2>
-<ul>
-<li>Please be patient😄 while using the Meeting functionality, as I'm using a <code>STUN</code> server to facilitate remote user participation, and have written my own server-side code (rather than use a service like <code>Jitsi</code>, <code>Vidyo</code>, or <code>Twilio</code>)</li>
-</ul></div>
+</div>
             </div>
         </div>
 

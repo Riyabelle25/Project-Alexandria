@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import { VideoCall, LaptopChromebook } from "@material-ui/icons";
 import { makeStyles } from "@material-ui/core/styles";

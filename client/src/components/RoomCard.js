@@ -78,6 +78,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
+// eslint-disable-next-line react/prop-types
 const CustomCard = ({ title }) => {
   const styles = useStyles();
 

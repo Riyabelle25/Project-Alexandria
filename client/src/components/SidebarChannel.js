@@ -1,9 +1,10 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import '../styles/SidebarChannel.css';
+import React from "react";
+import { useDispatch } from "react-redux";
+import "../styles/SidebarChannel.css";
 
-import { setChannelInfo } from '../slice/appSlice';
+import { setChannelInfo } from "../slice/appSlice";
 
+// eslint-disable-next-line react/prop-types
 function SidebarChannel({ id, channelName }) {
   const dispatch = useDispatch();
 

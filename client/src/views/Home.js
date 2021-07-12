@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable react/jsx-key */
 import React, { useState, useEffect } from "react";
 import db, { auth, firebase } from "../app/firebase";
 import RoomCard from "../components/RoomCard";
@@ -111,6 +113,7 @@ export const Home = function () {
           </h3>
           {users != null
             ? users.map((user) => (
+                // eslint-disable-next-line react/jsx-key
                 <Row
                   paddingTop={1}
                   textAlign={"flex-start"}

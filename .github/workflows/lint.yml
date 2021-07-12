@@ -34,7 +34,3 @@ jobs:
       - name: Run Eslint linters and Prettier format checks
         run: >-
           npm install &&  npm run lint
-        # uses: wearerequired/lint-action@v1
-        # with:
-        #   eslint: true
-        #   prettier: true

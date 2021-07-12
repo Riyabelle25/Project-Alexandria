@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import ChatMsg from "./chatMsg";
 import "../styles/Message.css";
@@ -11,6 +12,7 @@ function Message({ message, timestamp, user }) {
   var justify = "start";
   var name = user.displayName;
   console.log(user, auth.currentUser);
+  // eslint-disable-next-line react/prop-types
   if (user.email === auth.currentUser.email) {
     name = "";
     side = "right";

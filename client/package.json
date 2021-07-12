@@ -43,12 +43,6 @@
     "test": "jest --transformIgnorePatterns \"node_modules/(?!alexandria-client/allow)/\" --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
   "proxy": "https://alexandria-server.azurewebsites.net",
   "browserslist": {
     "production": [

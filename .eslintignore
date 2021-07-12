@@ -3,4 +3,5 @@
 /node_modules
 venv
 # documentation dir
-docs
+/docs
+site

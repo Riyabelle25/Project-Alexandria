@@ -58,6 +58,7 @@ export const Home = function () {
   }, [setRooms]);
   console.log(rooms);
 
+  // Add a Room to Firestore and automatically create General channel in it
   const handleAddRoom = () => {
     const roomName = prompt("Enter a new room name");
     if (roomName) {

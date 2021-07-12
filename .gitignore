@@ -1,4 +1,5 @@
 client/build
+site
 # Logs
 logs
 *.log
@@ -6,6 +7,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
+
+# virtual env
+venv
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json

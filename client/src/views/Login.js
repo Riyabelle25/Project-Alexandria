@@ -7,6 +7,7 @@ import "../styles/Login.css";
 import logo from "../assets/alexandria.svg";
 
 function Login() {
+  // generates pop-up window prompting user to sign in with Google account
   const signIn = () => {
     auth.signInWithPopup(provider).catch((error) => alert(error.message));
   };
@@ -49,35 +50,6 @@ function Login() {
                 }}
               >
                 Sign In
-              </button>
-            </Item>
-            <Item
-              paddingLeft={4}
-              paddingTop={1}
-              fontFamily="Lucida Grande"
-              style={{ opacity: "0.8", color: "rgb(49, 7, 83)" }}
-            >
-              <h3>or </h3>
-            </Item>
-            <Item>
-              <button
-                id="video-call"
-                onClick={() =>
-                  (window.location.href = `/meeting/${
-                    Math.floor(Math.random() * 33) * 1000
-                  }`)
-                }
-                style={{
-                  border: "1 px solid #c49c48",
-                  fontFamily: "Lucida Grande",
-                  color: "rgb(37, 5, 63)",
-                  backgroundColor: "#bcaaa4",
-                  borderRadius: "1rem",
-                  width: "14vw",
-                  height: "6vh",
-                }}
-              >
-                Start a Video Call
               </button>
             </Item>
           </Row>

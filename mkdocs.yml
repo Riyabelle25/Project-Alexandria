@@ -1,0 +1,11 @@
+site_name: Alexandria Docs
+site_url: https://example.com/
+nav:
+  - Test Minimum Functionality: test.md
+  - Login: login.md
+  - Home UI: home.md
+  - Call a Friend: call.md
+  - Direct Message: dm.md
+  - Rooms: rooms.md
+  - Meetings: meetings.md
+# theme: readthedocs

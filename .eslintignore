@@ -1,2 +1,5 @@
 /client/build
 /node_modules
+venv
+# documentation dir
+docs

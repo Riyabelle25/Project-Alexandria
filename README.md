@@ -58,6 +58,7 @@ I have tested Alexandria's functionalities out with my friends, seniors- even wi
 
 Thus, the significance of this section.
 
+- On Linux/MacOS, 100% zoom level works fine. If you're on Windows, 67% zoom level may be comfortable for you.
 - If you encounter a blank page with just the app's background colour, reload the page.
 - Please be patient with the Meeting Functionality- it _may_ take a few attempts for a second user to join the call, in case the `STUN` server urls aren't connecting (or your region is experiencing network issues). I have done my best to avoid this, by testing the urls on `ICETrickle` to see their status.
 - If the video call drops, or the other user isn't able to join, switch to Windows OS.

@@ -52,18 +52,18 @@ To know more about the functionalities themselves, see the [docs](https://www.gi
 
 ## Build, and Host Locally:
 
-    `git clone https://github.com/Riyabelle25/Project-Alexandria.git`
-    `cd alexandria`
-    `npm install`
+    git clone https://github.com/Riyabelle25/Project-Alexandria.git
+    cd alexandria
+    npm install
 
-    Go to client/src/app/env.js and edit the ENDPOINT to this:
-     `const ENDPOINT = "http://localhost:8080";`
+Go to client/src/app/env.js and edit the `ENDPOINT` to this:
+`const ENDPOINT = "http://localhost:8080";`
 
-    To deploy it locally,
-    `npm run dev`
+To deploy it locally:
+`npm run dev`
 
-    To run tests locally,
-    `npm run test`
+To run tests locally:
+`npm run test`
 
 ## Code Quality:
 

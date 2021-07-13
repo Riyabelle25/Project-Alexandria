@@ -2,6 +2,8 @@
 /* eslint-disable react/jsx-key */
 import React, { useState, useEffect } from "react";
 import db, { auth, firebase } from "../app/firebase";
+import ENDPOINT from "../app/env";
+
 import RoomCard from "../components/RoomCard";
 import { Message } from "@material-ui/icons";
 import FeatureCard from "../components/FeatureCard";
@@ -14,7 +16,7 @@ import Header from "../components/Header";
 import socketIOClient from "socket.io-client";
 import { useSizedIconButtonStyles } from "@mui-treasury/styles/iconButton/sized";
 
-const ENDPOINT = "https://alexandria-server.azurewebsites.net";
+// const ENDPOINT = "https://alexandria-server.azurewebsites.net";
 
 export const Home = function () {
   const [rooms, setRooms] = useState([]);

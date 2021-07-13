@@ -2,6 +2,8 @@
 import React, { Component } from "react";
 import faker from "faker";
 import db, { firebase } from "../app/firebase";
+import ENDPOINT from "../app/env";
+
 import { IconButton, Badge, Input, Button } from "@material-ui/core";
 import VideocamIcon from "@material-ui/icons/Videocam";
 import VideocamOffIcon from "@material-ui/icons/VideocamOff";
@@ -20,7 +22,7 @@ import Modal from "react-bootstrap/Modal";
 import "bootstrap/dist/css/bootstrap.css";
 import "../styles/Video.css";
 const io = require("socket.io-client");
-const server_url = "https://alexandria-server.azurewebsites.net";
+// const ENDPOINT = "https://alexandria-server.azurewebsites.net";
 // http://localhost:8080
 // https://alexandria-server.azurewebsites.net
 
@@ -352,7 +354,7 @@ class Video extends Component {
 
   connectToSocketServer = () => {
     console.log("want to connect");
-    socket = io.connect(server_url, {
+    socket = io.connect(ENDPOINT, {
       secure: true,
       cors: {
         // withCredentials:false

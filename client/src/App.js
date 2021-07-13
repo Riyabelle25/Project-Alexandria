@@ -11,10 +11,11 @@ import Dms from "./components/Dms";
 import Login from "./views/Login";
 import Home from "./views/Home";
 import db, { auth } from "./app/firebase";
+import ENDPOINT from "./app/env";
 import { login, logout, selectUser } from "./slice/userSlice";
 import Modal from "react-bootstrap/Modal";
 import socketIOClient from "socket.io-client";
-const ENDPOINT = "https://alexandria-server.azurewebsites.net";
+// const ENDPOINT = "https://alexandria-server.azurewebsites.net";
 
 function App() {
   const dispatch = useDispatch();

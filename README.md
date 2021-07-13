@@ -13,9 +13,7 @@ Project Alexandria is my attempt at cloning the Microsoft Teams App as part of t
 
 The Great Library of Alexandria was one of the most significant libraries of the ancient world. It came to be regarded as the capital of learning and knowledge. Drawing inspiration from this, I visualised a **collaborative virtual infrastructure** where new spaces can be created for teams to meet and work.
 
-<img src="img/alexandria.svg" alt="drawing" width="400" style={{marginLeft:12vw}}/>
-
-Just as the Library of Alexandria was the hub for sharing of knowledge in the ancient times, I see platforms like Teams being the hub for collective working, growing and learning in these new times brought about by the Pandemic.
+Just as the Library of Alexandria was the hub for sharing of knowledge in the ancient times, I see platforms like **Teams** being the hub for collective working, growing and learning in these new times brought about by the Pandemic.
 
 ## Tech Stack
 
@@ -52,9 +50,20 @@ To know more about the functionalities themselves, see the [docs](https://www.gi
 
 - [Meetings](docs/meetings.md): Group Video Calls; this is also the minimum functionality to be coded in for the Engage Mentorship Programme. Asides from directly calling an online user and have a one-on-one video call; Meetings can also be started from a Room itself, after which the meeting link can be copied and shared to invite others.
 
-<!-- ## Routing within App:
+## Build, and Host Locally:
 
-`react-router-dom` has been used to route user to different features of Alexandria. Following are valid routes: -->
+    `git clone https://github.com/Riyabelle25/Project-Alexandria.git`
+    `cd alexandria`
+    `npm install`
+
+    Go to client/src/app/env.js and edit the ENDPOINT to this:
+     `const ENDPOINT = "http://localhost:8080";`
+
+    To deploy it locally,
+    `npm run dev`
+
+    To run tests locally,
+    `npm run test`
 
 ## Code Quality:
 
@@ -77,4 +86,4 @@ along with `redux-mock-store`,` Jest``Enzyme ` has been used to write component 
 
 ## Documentation:
 
-Used mkdocs to build a static documentation and serve it onto GitHub Project Pages.
+Used `mkdocs` to build a static documentation and serve it onto GitHub Project Pages.

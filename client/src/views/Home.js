@@ -66,7 +66,9 @@ export const Home = function () {
   const handleAddRoom = () => {
     const roomName = prompt("Enter a new room name");
     if (roomName) {
-      db.collection("rooms").doc(roomName).set({ roomName: roomName });
+      db.collection("rooms")
+        .doc(roomName)
+        .set({ roomName: roomName }, { merge: true });
       db.collection("rooms")
         .doc(roomName)
         .update({

@@ -89,12 +89,49 @@
     
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#testing-minimum-functionality" class="nav-link">Testing Minimum Functionality</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#steps" class="nav-link">Steps</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#troubleshooting" class="nav-link">Troubleshooting</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
         </ul>
     </div>
 </div></div>
                     <div class="col-md-9" role="main">
 
-</div>
+<h1 id="testing-minimum-functionality">Testing Minimum Functionality</h1>
+<p>Here's what you can do to just test the Minimum Functionality and Adapt Phase Challenge tasks:</p>
+<h2 id="steps">Steps</h2>
+<ul>
+<li>Sign in using your Google account.</li>
+<li>Enter <code>BookClub</code>.</li>
+<li>See the <code>Meeting Logs</code> from previous test runs as you scroll down General</li>
+<li><code>Start a Meeting</code> from the Header</li>
+<li>You'll be redirected to the pre-meeting UI and fill in your name (a random name is already there in the input)</li>
+<li>On entering the Meeting, copy the invite link from the top and either share it with a friend, or paste it in another tab and join as the second user.</li>
+<li>As I am using <code>STUN</code> servers to accomodate remote users (and not pre-built Services), the time it takes for another user to join in can take anything between <strong>30s to 2 minutes</strong>. Please be patient 😅</li>
+<li>This has been built using <code>ReactJS</code> for the Client-Side, <code>ExpressJS</code> for the Server-Side and <code>socket.io</code> and <code>PeerJS</code> library for facilitating the Video Call.</li>
+<li>You can <code>mute/unmute</code>, <code>switch camera on/off</code> and <code>share screen</code> as well.</li>
+<li>There's inbuilt <code>Chat</code> Functionality, and messages exchanged here shall be displayed as <code>Meeting Logs</code> in the ChatBox when you end the meeting.</li>
+</ul>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<p>I have tested Alexandria's functionalities out with my friends, seniors- even with my Mentor at the Engage Programme, multiple times; and know that everything is good. But then-</p>
+<pre><code>`Murphy's Law: "Anything that can go wrong, will go wrong"`
+</code></pre>
+<p>Thus, the significance of this section.</p>
+<ul>
+<li>If you encounter a blank page with just the app's background colour, reload the page.</li>
+<li>Please be patient with the Meeting Functionality- it <em>may</em> take a few attempts for a second user to join the call, in case the <code>STUN</code> server urls aren't connecting (or your region is experiencing network issues). I have done my best to avoid this, by testing the urls on <code>ICETrickle</code> to see their status.</li>
+<li>You need to be online with a good internet connection while using this app. Incase you run into problems with Firebase connections, a message will pop up.</li>
+</ul></div>
             </div>
         </div>
 

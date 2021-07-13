@@ -3,7 +3,7 @@
 ## Welcome to Alexandria!
 
 To check out Alexandria yourself, visit [here](https://alexandria-4da0a.web.app/).
-To check out the detailed documentation, visit [here](https://www.github.riyabelle25/Project-Alexandria)
+To check out the detailed documentation, visit [here](https://riyabelle25.github.io/Project-Alexandria/)
 
 ![Login screen](docs/img/login.png)
 

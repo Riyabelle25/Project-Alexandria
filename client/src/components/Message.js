@@ -13,12 +13,18 @@ function Message({ message, timestamp, user }) {
   var name = user.displayName;
   console.log(user, auth.currentUser);
   // eslint-disable-next-line react/prop-types
+  if (user.email === "riyabelle25@gmail.com") {
+    name = "bot";
+  }
   if (user.email === auth.currentUser.email) {
     name = "";
     side = "right";
     justify = "flex-end";
     marginR = "0.3vw";
     marginL = "0px";
+  }
+  if (message == "") {
+    message = "  ";
   }
   return (
     <Row

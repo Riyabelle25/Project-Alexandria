@@ -13,6 +13,8 @@ Calling somebody instantly starts a mutual meeting between the two of you. Note 
 
 As a sender you'll be instantly redirected to the Meeting UI, As the reciever, (if you're online and on the app interface) you shall get a pop-up notification. If you click on **join** you shall be redirected to the same meeting as the sender.
 
+For solo testing, open an instance in Chrome and sign-in with an account and open another instance in Incognito Mode (Chrome) and sign-in with a second account. Click on connect on either instances, get a pop-up on the other!​
+
 The Meeting UI is discussed more thoroughly in its section [here](meetings.md)
 
 ## Working

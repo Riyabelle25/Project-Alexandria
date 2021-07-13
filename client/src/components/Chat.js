@@ -7,7 +7,7 @@ import Box from "@material-ui/core/Box";
 import Header from "./Header";
 import Message from "./Message";
 
-import db from "../app/firebase";
+import db, { auth } from "../app/firebase";
 import { selectUser } from "../slice/userSlice";
 import { selectChannelId, selectChannelName } from "../slice/appSlice";
 import { useParams } from "react-router-dom";
@@ -21,19 +21,23 @@ function Chat() {
   // const [meetingMsgs, setMeetingMsgs] = useState([]);
   const roomName = useParams().name;
 
-  useEffect(() => {
-    if (channelId) {
-      db.collection("rooms")
-        .doc(roomName)
-        .collection("channels")
-        .doc(channelId)
-        .collection("messages")
-        .orderBy("timestamp", "asc")
-        .onSnapshot((snapshot) => {
-          setMessages(snapshot.docs.map((doc) => doc.data()));
-        });
-    }
-  }, [channelId]);
+  useEffect(
+    () => {
+      if (channelId) {
+        db.collection("rooms")
+          .doc(roomName)
+          .collection("channels")
+          .doc(channelId)
+          .collection("messages")
+          .orderBy("timestamp", "asc")
+          .onSnapshot((snapshot) => {
+            setMessages(snapshot.docs.map((doc) => doc.data()));
+          });
+      }
+    },
+    [channelId],
+    setMessages
+  );
 
   const sendMessage = (e) => {
     e.preventDefault();
@@ -44,7 +48,7 @@ function Chat() {
       .collection("messages")
       .add({
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-        message: messageInput,
+        message: messageInput == "" ? "  " : messageInput,
         user,
       });
     setMessageInput("");
@@ -52,7 +56,7 @@ function Chat() {
 
   return (
     <div className="chat">
-      <Header channelName={channelName} home={false} />
+      <Header channelName={channelName} home={false} user={auth.currentUser} />
       <div className="chat__messages">
         {messages.map((message, index) =>
           message ? (

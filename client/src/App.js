@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Button, CircularProgress } from "@material-ui/core";
 import Video from "./views/roomCall";
+import Error from "./views/Error";
 import Sidebar from "./components/Sidebar";
 import Chat from "./components/Chat";
 import Dms from "./components/Dms";
@@ -157,7 +158,10 @@ function App() {
               </div>
             )}
           </Route>
-          <Route path="/:random" component={Video} />
+          <Route exact path="/:random">
+            {" "}
+            <Error />{" "}
+          </Route>
         </Switch>
       </Router>
     </div>

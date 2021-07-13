@@ -507,6 +507,27 @@ class Video extends Component {
     let str = window.location.href;
     const arr = str.split("/");
     console.log(arr[arr.length - 2]);
+    if (arr[arr.length - 2] === "room") {
+      if (this.state.messages.length > 0) {
+        db.collection("rooms")
+          .doc(arr[arr.length - 1])
+          .collection("channels")
+          .doc("general")
+          .collection("messages")
+          .add({
+            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+            messages: this.state.messages,
+          });
+      }
+    } else {
+      db.collection("dms")
+        .doc(arr[arr.length - 1])
+        .collection("messages")
+        .add({
+          timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+          messages: this.state.messages,
+        });
+    }
 
     try {
       let str = window.location.href;
@@ -538,6 +559,7 @@ class Video extends Component {
       let tracks = this.localVideoref.current.srcObject.getTracks();
       tracks.forEach((track) => track.stop());
     } catch (e) {}
+    this.setState({ messages: [] });
     if (arr[arr.length - 2] === "room") {
       window.location.href = `/room/${arr[arr.length - 1]}`;
     } else {

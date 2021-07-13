@@ -7,7 +7,7 @@ import Box from "@material-ui/core/Box";
 import Header from "./Header";
 import Message from "./Message";
 
-import db from "../app/firebase";
+import db, { auth } from "../app/firebase";
 import { selectUser } from "../slice/userSlice";
 import { useParams } from "react-router-dom";
 
@@ -15,8 +15,6 @@ function Dms() {
   const user = useSelector(selectUser);
   const [messageInput, setMessageInput] = useState("");
   const [messages, setMessages] = useState([]);
-
-  // const [meetingMsgs, setMeetingMsgs] = useState([]);
   const pairID = useParams().name;
 
   useEffect(() => {
@@ -31,17 +29,25 @@ function Dms() {
 
   const sendMessage = (e) => {
     e.preventDefault();
-    db.collection("dms").doc(pairID).collection("messages").add({
-      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-      message: messageInput,
-      user,
-    });
+    db.collection("dms")
+      .doc(pairID)
+      .collection("messages")
+      .add({
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        message: messageInput == "" ? " " : messageInput,
+        user,
+      });
     setMessageInput("");
   };
 
   return (
     <div className="chat" style={{ flex: "1" }}>
-      <Header channelName={"Direct Message"} home={false} dm={true} />
+      <Header
+        channelName={"Direct Message"}
+        home={false}
+        dm={true}
+        user={auth.currentUser}
+      />
       <div className="chat__messages">
         {messages.map((message, index) =>
           message ? (

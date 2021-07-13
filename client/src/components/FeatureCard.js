@@ -94,12 +94,12 @@ const CustomCard = ({
   return (
     <div className={styles.root}>
       <Column className={styles.card} style={{ backgroundColor: color }}>
-        <Row p={2} gap={4} justifyContent={"right"} flexBasis={"auto"}>
+        <Row p={"0.2vw"} gap={4} justifyContent={"right"} flexBasis={"auto"}>
           {icon ? (
             <LaptopChromebook
               style={{
-                width: 120,
-                height: 100,
+                width: "8vw",
+                height: "8vw",
                 justifyContent: "flex-start",
                 color: "#c5cae9",
               }}
@@ -117,7 +117,7 @@ const CustomCard = ({
         </Row>
         <Box
           flexBasis={"auto"}
-          marginTop={1}
+          marginTop={0}
           px={2}
           marginRight={8}
           color={"rgb(48, 41, 54)"}
@@ -126,7 +126,12 @@ const CustomCard = ({
         >
           {description}
         </Box>
-        <Row p={2} gap={1} position={"bottom"} flexBasis={"auto"}>
+        <Row
+          paddingBottom={"3vw"}
+          gap={1}
+          position={"bottom"}
+          flexBasis={"auto"}
+        >
           <Item
             position={"middle-right"}
             alignContent={"flex-end"}

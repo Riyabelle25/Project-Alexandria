@@ -81,6 +81,7 @@ export const Home = function () {
         .doc("general")
         .set({ channelName: "general" });
     }
+    window.location.reload(false);
   };
 
   const iconBtnStyles = useSizedIconButtonStyles({ padding: 2 });

@@ -50,6 +50,19 @@ To know more about the functionalities themselves, see the [docs](https://www.gi
 
 - [Meetings](docs/meetings.md): Group Video Calls; this is also the minimum functionality to be coded in for the Engage Mentorship Programme. Asides from directly calling an online user and have a one-on-one video call; Meetings can also be started from a Room itself, after which the meeting link can be copied and shared to invite others.
 
+## Troubleshooting
+
+I have tested Alexandria's functionalities out with my friends, seniors- even with my Mentor at the Engage Programme, multiple times; and know that everything is good. But then-
+
+    `Murphy's Law: "Anything that can go wrong, will go wrong"`
+
+Thus, the significance of this section.
+
+- If you encounter a blank page with just the app's background colour, reload the page.
+- Please be patient with the Meeting Functionality- it _may_ take a few attempts for a second user to join the call, in case the `STUN` server urls aren't connecting (or your region is experiencing network issues). I have done my best to avoid this, by testing the urls on `ICETrickle` to see their status.
+- If the video call drops, or the other user isn't able to join, switch to Windows OS.
+- You need to be online with a good internet connection while using this app. Incase you run into problems with Firebase connections, a message will pop up.
+
 ## Build, and Host Locally:
 
     git clone https://github.com/Riyabelle25/Project-Alexandria.git

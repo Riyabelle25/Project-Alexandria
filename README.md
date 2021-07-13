@@ -3,7 +3,7 @@
 ## Welcome to Alexandria!
 
 To check out Alexandria yourself, visit [here](https://alexandria-4da0a.web.app/).
-To check out the detailed documentation, visit [here](https://www.github.riyabelle25/Project-Alexandria)
+To check out the detailed documentation, visit [here](https://riyabelle25.github.io/Project-Alexandria/)
 
 ![Login screen](docs/img/login.png)
 
@@ -30,7 +30,7 @@ Here's the tech stack involved for each of the functionalities:
 
 - **Video-Call Functionality**: Using `PeerJS` (wraps `WebRTC` ), `socket.io`\ `socket.io client`. Also using `STUN` servers to allow remote participation!
 
-- **Client-side**: **`React JS` for Alexandria's front-end. ** `Redux` for users' state management. Code can be found under `client\` from repository. I have made good use of `@material-ui` and `mui-treasury` packages for building aesthetic UI components.
+- **Client-side**: `React JS` for Alexandria's front-end. ** `Redux` for users' state management. Code can be found under `client\` from repository. I have made good use of `@material-ui` and `mui-treasury` packages for building aesthetic UI components.
 
 - **Database**: **Firestore database** for storing data on the cloud- for eg. the rooms a user has joined, the chat messages, and user information.
 

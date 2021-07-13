@@ -21,6 +21,8 @@ Just as the Library of Alexandria was the hub for sharing of knowledge in the an
 
 ## Tech Stack
 
+![cat](img/adorable_kitten.gif)
+
 Although familiar with `NodeJs` projects, this was my first time coding in JS- especially working with `React` 😥.
 I learnt on the get-go, and spent- sometimes hours on end debugging! It was challenging but in a good way.
 

@@ -9,7 +9,7 @@ Here's what you can do to just test the Minimum Functionality and Adapt Phase Ch
 - See the `Meeting Logs` from previous test runs as you scroll down General
 - `Start a Meeting` from the Header
 - You'll be redirected to the pre-meeting UI and fill in your name (a random name is already there in the input)
-- On entering the Meeting, copy the invite link from the top and either share it with a friend, or paste it in another tab and join as the second user.
+- On entering the Meeting, copy the invite link from the top and paste it into your **mobile phone's google chrome** to join in from your phone. Or, you can paste it into another tab on your PC itself and join as the second user.
 - As I am using `STUN` servers to accomodate remote users (and not pre-built Services), the time it takes for another user to join in can take anything between **30s to 2 minutes**. Please be patient 😅
 - This has been built using `ReactJS` for the Client-Side, `ExpressJS` for the Server-Side and `socket.io` and `PeerJS` library for facilitating the Video Call.
 - You can `mute/unmute`, `switch camera on/off` and `share screen` as well.

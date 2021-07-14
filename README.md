@@ -30,7 +30,7 @@ Here's the tech stack involved for each of the functionalities:
 
 - **Video-Call Functionality**: Using `PeerJS` (wraps `WebRTC` ), `socket.io`\ `socket.io client`. Also using `STUN` servers to allow remote participation!
 
-- **Client-side**: `React JS` for Alexandria's front-end. ** `Redux` for users' state management. Code can be found under `client\` from repository. I have made good use of `@material-ui` and `mui-treasury` packages for building aesthetic UI components.
+- **Client-side**: `React JS` for Alexandria's front-end. \*\* `Redux` for users' state management. Code can be found under `client\` from repository. I have made good use of `@material-ui` and `mui-treasury` packages for building aesthetic UI components.
 
 - **Database**: **Firestore database** for storing data on the cloud- for eg. the rooms a user has joined, the chat messages, and user information.
 
@@ -49,6 +49,29 @@ To know more about the functionalities themselves, see the [docs](https://www.gi
 - [Rooms](docs/rooms.md): Each Room is modelled after a Team from the Microsoft Teams App. A Room is a virtual workspace made for team collaboration over a particular activity- be it a project, or a university course or even event management. Conversation can be maintained by creating `Channels` in a room, to keep discussions organised.
 
 - [Meetings](docs/meetings.md): Group Video Calls; this is also the minimum functionality to be coded in for the Engage Mentorship Programme. Asides from directly calling an online user and have a one-on-one video call; Meetings can also be started from a Room itself, after which the meeting link can be copied and shared to invite others.
+
+# Testing Minimum Functionality
+
+Here's what you can do to just test just the **Minimum Functionality** and **Adapt Phase Challenge tasks**:
+
+## Pre-Requisites
+
+- Open Alexandria your mobile/tablet device (Android, if possible) and your PC.
+- Good internet connection
+
+## Steps
+
+- Sign into Alexandria on your **PC** using your Google account.
+- Enter `BookClub`.
+- See the `Meeting Logs` from previous test runs as you scroll down General
+- `Start a Meeting` from the Header
+- You'll be redirected to the pre-meeting UI and fill in your name (a random name is already there in the input)
+- On entering the Meeting, copy the invite link from the top and paste it into your **mobile phone's google chrome** to join in from your phone. You'll see two instances immediately
+- Or, you can paste the link into another tab on your PC itself and join as the second user.
+- As I am using `STUN` servers to accomodate remote users (and not pre-built Services), the time it takes for another user to join in can take anything between **30s to 2 minutes**. Please be patient 😅
+- This has been built using `ReactJS` for the Client-Side, `ExpressJS` for the Server-Side and `socket.io` and `PeerJS` library for facilitating the Video Call.
+- You can `mute/unmute`, `switch camera on/off` and `share screen` as well.
+- There's inbuilt `Chat` Functionality, and messages exchanged here shall be displayed as `Meeting Logs` in the ChatBox when you end the meeting.
 
 ## Troubleshooting
 

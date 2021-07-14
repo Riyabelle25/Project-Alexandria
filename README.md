@@ -3,7 +3,9 @@
 ## Welcome to Alexandria!
 
 To check out Alexandria yourself, visit [here](https://alexandria-4da0a.web.app/).
-To check out the detailed documentation, visit [here](https://riyabelle25.github.io/Project-Alexandria/)
+Alexandria has been built using **NodeJS-ReactJS** tech stack, thus you can view the site on your **PC** (Windows/MacOS/Linux) or **Mobile/Tablet** devices as well.
+
+To check out the detailed **Documentation**, visit [here](https://riyabelle25.github.io/Project-Alexandria/)
 
 ![Login screen](docs/img/login.png)
 

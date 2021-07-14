@@ -56,7 +56,7 @@ Here's what you can do to just test just the **Minimum Functionality** and **Ada
 
 ## Pre-Requisites
 
-- Open Alexandria your mobile/tablet device (Android, if possible) and your PC.
+- Open Alexandria on your **mobile/tablet device** (Android, if possible) and your **PC**.
 - Good internet connection
 
 ## Steps
